@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cresbi.com.br/sitemap.xml
