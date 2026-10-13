@@ -1,38 +1,43 @@
 .section { overflow: hidden; border-top: 1px solid var(--line); }
 
-/* Losango aberto do símbolo, grande, em --gold-deep, com a pedra em --gold. Nunca gira. */
-.facet { width: 280px; height: 280px; margin-top: var(--space-8); margin-left: -24px; pointer-events: none; }
+.layout { position: relative; z-index: 1; display: grid; gap: var(--space-12); }
+@media (min-width: 1024px) { .layout { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: var(--space-16); align-items: start; } }
+
+.copy { display: flex; flex-direction: column; gap: var(--space-6); }
+.lead { color: var(--text-muted); max-width: 520px; }
+
+/* Losango aberto do símbolo, em --gold-deep, com a pedra em --gold. Nunca gira. */
+.facet { width: 280px; height: 280px; margin-top: var(--space-4); margin-left: -24px; pointer-events: none; }
 .facet path { fill: none; stroke: var(--gold-deep); stroke-width: 2; stroke-linejoin: miter; }
 .stone { fill: var(--gold); transform-box: fill-box; transform-origin: center; }
 .pulse { animation: pulse 3s ease-in-out infinite; }
 @keyframes pulse { 50% { transform: scale(1.04); } }
-@media (max-width: 1023px) { .facet { width: 160px; height: 160px; margin: var(--space-4) 0 0 -12px; } }
-
-.layout { position: relative; z-index: 1; display: grid; gap: var(--space-12); }
-@media (min-width: 1024px) { .layout { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--space-16); align-items: start; } }
-
-.copy { display: flex; flex-direction: column; gap: var(--space-6); }
-.direct { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); }
-.direct a { display: inline-flex; align-items: center; gap: var(--space-3); min-height: 44px; color: var(--text); text-decoration: none; font: 400 14px/20px var(--font-mono); }
-.direct a:hover { color: var(--gold-strong); }
-
-.formWrap { min-width: 0; }
-.form { display: grid; gap: var(--space-6); padding: var(--space-6); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); }
-@media (min-width: 768px) {
-  .form { grid-template-columns: 1fr 1fr; padding: var(--space-8); }
-  .form > :nth-child(n + 3) { grid-column: 1 / -1; }
-}
-/* Campos sobre --surface: o DS usa --surface no input; aqui subimos um nível (--ground) para contrastar com o card. */
-.form :global(.cr-field__input) { background: var(--ground); }
-.select { appearance: none; padding-right: var(--space-12);
-  background-image: linear-gradient(45deg, transparent 50%, var(--text-muted) 50%), linear-gradient(135deg, var(--text-muted) 50%, transparent 50%);
-  background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%; background-size: 5px 5px; background-repeat: no-repeat; }
-.textarea { height: auto; min-height: 120px; padding-block: var(--space-3); resize: vertical; }
-
-.submit { display: flex; }
-.sent { min-width: min(100%, 420px); }
-.fallback { margin-top: var(--space-3); font-size: 13px; line-height: 20px; color: var(--text-subtle); }
-.fallback a { color: var(--gold); }
-.note { font-size: 13px; line-height: 20px; color: var(--text-subtle); }
-
+@media (max-width: 1023px) { .facet { display: none; } }
 @media (prefers-reduced-motion: reduce) { .pulse { animation: none; } }
+
+.cardWrap { min-width: 0; }
+.card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); }
+
+.head { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-3); padding: var(--space-6); border-bottom: 1px solid var(--line); }
+@media (min-width: 768px) { .head { padding: var(--space-8); } }
+/* Número em Geist Mono, no tamanho de .cr-kpi__value (40px), menor no celular. */
+.number { display: inline-flex; align-items: center; min-height: 44px; font: 450 28px/36px var(--font-mono); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: var(--text); text-decoration: none; }
+@media (min-width: 768px) { .number { font-size: 40px; line-height: 44px; } }
+.number:hover { color: var(--gold-strong); }
+.cta { margin-top: var(--space-3); }
+.ctaIcon { color: var(--on-gold); }
+
+.shortcuts { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-6); }
+@media (min-width: 768px) { .shortcuts { padding: var(--space-6) var(--space-8); } }
+.shortcuts ul { list-style: none; border-top: 1px solid var(--line); }
+.shortcuts li { border-bottom: 1px solid var(--line); }
+.shortcut { display: flex; align-items: center; gap: var(--space-4); min-height: 48px; color: var(--text); text-decoration: none; font-size: 15px; line-height: 24px; }
+.shortcut:hover .shortcutLabel, .shortcut:focus-visible .shortcutLabel { color: var(--gold-strong); }
+.shortcut:hover :global(.arrow), .shortcut:focus-visible :global(.arrow) { transform: translateX(4px); color: var(--gold); }
+.shortcutIndex { font: 400 13px/20px var(--font-mono); color: var(--gold); width: 2ch; }
+.shortcutLabel { flex: 1; transition: color .15s ease; }
+.shortcut :global(.arrow) { color: var(--text-subtle); }
+
+.instagram { display: inline-flex; align-items: center; gap: var(--space-3); min-height: 44px; margin: 0 var(--space-6) var(--space-4); color: var(--text-muted); text-decoration: none; font: 400 13px/20px var(--font-mono); align-self: flex-start; }
+@media (min-width: 768px) { .instagram { margin-inline: var(--space-8); } }
+.instagram:hover { color: var(--gold-strong); }
