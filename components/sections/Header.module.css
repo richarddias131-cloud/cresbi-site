@@ -1,0 +1,62 @@
+.wrap {
+  position: fixed; inset: 0 0 auto; z-index: 50;
+  background: var(--ground);
+  border-bottom: 1px solid transparent;
+  transition: border-color .15s ease, background-color .2s ease;
+}
+/* Ao rolar: --ground com 85% de opacidade + desfoque leve, e a borda --line aparece. */
+.scrolled {
+  background: color-mix(in srgb, var(--ground) 85%, transparent);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom-color: var(--line);
+}
+
+/* .cr-header fica dentro do contêiner de 1200px; o fundo e a borda ficam no wrapper. */
+.header {
+  background: transparent; border-bottom: 0;
+  max-width: calc(1200px + 2 * var(--space-6)); margin-inline: auto;
+  padding-inline: var(--space-4); gap: var(--space-6);
+}
+@media (min-width: 768px) { .header { padding-inline: var(--space-6); } }
+
+.logoLink { display: inline-flex; align-items: center; min-height: 44px; border-radius: var(--radius-xs); }
+.nav a { display: inline-flex; align-items: center; min-height: 44px; transition: color .15s ease; }
+.nav a:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: var(--radius-xs); }
+
+.nav, .status, .cta { display: none !important; }
+.toggle {
+  margin-left: auto; display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; background: transparent; border: 1px solid var(--line); border-radius: var(--radius-sm); cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .cta { display: inline-flex !important; margin-left: auto; }
+  .toggle { margin-left: 0; }
+}
+@media (min-width: 1100px) {
+  .nav { display: flex !important; }
+  .cta { margin-left: 0; }
+  .toggle { display: none; }
+}
+@media (min-width: 1240px) {
+  .status { display: inline-flex !important; }
+}
+
+/* Menu em tela cheia (celular e tablet) */
+.menu {
+  position: fixed; inset: 72px 0 0; background: var(--ground);
+  border-top: 1px solid var(--line);
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: var(--space-8) var(--space-4) var(--space-12);
+  overflow-y: auto;
+}
+.menuNav { display: flex; flex-direction: column; }
+.menuLink {
+  display: flex; align-items: baseline; gap: var(--space-4);
+  padding: var(--space-4) 0; border-bottom: 1px solid var(--line);
+  font: 600 30px/36px var(--font-sans); letter-spacing: -0.025em; color: var(--text); text-decoration: none;
+}
+.menuIndex { font: 400 14px/20px var(--font-mono); color: var(--gold); }
+.menuFoot { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-6); margin-top: var(--space-12); }
+@media (min-width: 1100px) { .menu { display: none; } }

@@ -1,0 +1,31 @@
+@property --beam-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.card { position: relative; height: 100%; }
+.card:hover .link :global(.arrow) { transform: translateX(4px); }
+.link:focus-visible :global(.arrow) { transform: translateX(4px); }
+
+/*
+ * Feixe de luz: um conic-gradient só com --gold-strong, recortado para aparecer
+ * apenas na espessura da borda (mask com exclude). Percorre a borda uma vez a cada hover.
+ */
+.beam {
+  position: absolute; inset: -1px; border-radius: inherit; padding: 1px; pointer-events: none;
+  background: conic-gradient(from var(--beam-angle), transparent 0deg 300deg, var(--gold-strong) 345deg, transparent 360deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  opacity: 0;
+}
+.beam[data-run] { animation: beam 1.1s cubic-bezier(0.22, 1, 0.36, 1) 1 both; }
+@keyframes beam {
+  0% { --beam-angle: 0deg; opacity: 1; }
+  85% { opacity: 1; }
+  100% { --beam-angle: 360deg; opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .beam[data-run] { animation: none; }
+}
