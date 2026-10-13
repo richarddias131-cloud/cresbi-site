@@ -5,6 +5,7 @@ import { copyFileSync, mkdirSync, readFileSync, readdirSync, writeFileSync } fro
 import { join } from "node:path";
 
 const ds = "cresbi-design-system";
+mkdirSync(join("app", "styles"), { recursive: true });
 const css = readFileSync(join(ds, "tokens.css"), "utf8").replace(/url\("fonts\//g, 'url("/fonts/');
 writeFileSync(
   join("app", "styles", "tokens.generated.css"),
