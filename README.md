@@ -88,7 +88,6 @@ celular fica sobreposto no canto. Use JPG ou WebP com até ~250 KB.
 
 | Onde | Placeholder |
 | --- | --- |
-| `content/site.ts` → `faq` ("Quanto tempo leva?") | `[X]` a `[Y]` semanas |
 | Seção "Por que a CRESBI" (opcional) | linha de métricas `[X] projetos entregues · [Y] empresas atendidas`: não foi publicada para não mostrar colchetes no ar. Se houver números reais, inclua em `components/sections/WhyCresbi.tsx` |
 
 ## Estrutura

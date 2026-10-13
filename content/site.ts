@@ -204,7 +204,7 @@ export const faq = [
   },
   {
     q: "Quanto tempo leva?",
-    a: "Sites e landing pages costumam levar de [X] a [Y] semanas; sistemas, automações e projetos de IA dependem do escopo, sempre com prazo definido na proposta.",
+    a: "Um site fica pronto em uma semana: criado, entregue e funcionando. Sistemas, automações e projetos de IA dependem do escopo, sempre com prazo definido na proposta.",
   },
   {
     q: "Como funciona a implementação de IA?",
