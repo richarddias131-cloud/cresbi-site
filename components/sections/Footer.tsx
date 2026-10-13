@@ -1,5 +1,5 @@
 import { frentes } from "@/content/site";
-import { INSTAGRAM_HANDLE, INSTAGRAM_URL, WHATSAPP_DISPLAY, messages, whatsappLink } from "@/lib/whatsapp";
+import { INSTAGRAM_URL, messages, whatsappLink } from "@/lib/whatsapp";
 import { external } from "../ds/Button";
 import { Logo } from "../ds/Logo";
 import styles from "./Footer.module.css";
@@ -28,12 +28,12 @@ export function Footer() {
             <ul>
               <li>
                 <a href={whatsappLink(messages.geral)} {...external}>
-                  WhatsApp <span className={styles.muted}>{WHATSAPP_DISPLAY}</span>
+                  WhatsApp
                 </a>
               </li>
               <li>
                 <a href={INSTAGRAM_URL} {...external}>
-                  Instagram <span className={styles.muted}>{INSTAGRAM_HANDLE}</span>
+                  Instagram
                 </a>
               </li>
             </ul>
