@@ -1,5 +1,5 @@
 import { frentes } from "@/content/site";
-import { EMAIL, INSTAGRAM_HANDLE, INSTAGRAM_URL, WHATSAPP_DISPLAY, messages, whatsappLink } from "@/lib/whatsapp";
+import { INSTAGRAM_HANDLE, INSTAGRAM_URL, WHATSAPP_DISPLAY, messages, whatsappLink } from "@/lib/whatsapp";
 import { external } from "../ds/Button";
 import { Logo } from "../ds/Logo";
 import styles from "./Footer.module.css";
@@ -30,9 +30,6 @@ export function Footer() {
                 <a href={whatsappLink(messages.geral)} {...external}>
                   WhatsApp <span className={styles.muted}>{WHATSAPP_DISPLAY}</span>
                 </a>
-              </li>
-              <li>
-                <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
               </li>
               <li>
                 <a href={INSTAGRAM_URL} {...external}>

@@ -62,8 +62,9 @@ Sem essa troca, o Pages passa a mostrar este README em vez do site.
 - `content/site.ts`: frentes (cards de serviço e menu), linhas do Console do
   hero, faixa, fluxo de automação, etapas do método, diferenciais, projetos e
   FAQ.
-- `lib/whatsapp.ts`: número, e-mail, Instagram e as mensagens prontas de
-  cada botão do WhatsApp (incluindo a do formulário).
+- `lib/whatsapp.ts`: número do WhatsApp, Instagram e as mensagens prontas de
+  cada botão do WhatsApp (incluindo os atalhos por frente da seção de contato).
+  O e-mail foi tirado do site até a caixa contato@cresbi.com.br estar configurada.
 - Títulos e textos de cada seção: `components/sections/*.tsx`.
 - Título, descrição e dados estruturados (SEO): `app/layout.tsx`.
 

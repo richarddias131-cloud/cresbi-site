@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
-import { EMAIL, INSTAGRAM_URL, SITE_URL, WHATSAPP_NUMBER } from "@/lib/whatsapp";
+import { INSTAGRAM_URL, SITE_URL, WHATSAPP_NUMBER } from "@/lib/whatsapp";
 import "./globals.css";
 
 const title = "CRESBI · Tecnologia sob medida para empresas que querem crescer";
@@ -47,7 +47,6 @@ const jsonLd = {
   logo: `${SITE_URL}/logos/cresbi-logo-dark.svg`,
   image: `${SITE_URL}/og-image.png`,
   description,
-  email: EMAIL,
   telephone: `+${WHATSAPP_NUMBER}`,
   areaServed: "BR",
   sameAs: [INSTAGRAM_URL],
