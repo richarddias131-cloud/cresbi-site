@@ -129,17 +129,40 @@ export const diferenciais = [
 export type Projeto = {
   frente: string;
   cliente: string;
+  /** Endereço exibido na barra da "janela". */
   url: string;
+  /** Link do projeto (abre em nova aba). */
+  link: string;
   resultado: string;
-  /** Caminho do print em public/projetos/, ex.: "/projetos/cliente-1.jpg". */
+  /** Print em public/projetos/, sem barra inicial, ex.: "projetos/cliente.jpg". */
   imagem?: string;
 };
 
-// Placeholders: troque pelos projetos reais (ver README).
 export const projetos: Projeto[] = [
-  { frente: "Sites", cliente: "[NOME DO CLIENTE]", url: "[cliente].com.br", resultado: "[RESULTADO EM UMA FRASE]" },
-  { frente: "Sistemas sob medida", cliente: "[NOME DO CLIENTE]", url: "[cliente].com.br", resultado: "[RESULTADO EM UMA FRASE]" },
-  { frente: "Dados e BI", cliente: "[NOME DO CLIENTE]", url: "[cliente].com.br", resultado: "[RESULTADO EM UMA FRASE]" },
+  {
+    frente: "Sites",
+    cliente: "Ótica Noblesse",
+    url: "oticanoblesse.com.br",
+    link: "https://oticanoblesse.com.br",
+    resultado: "Site da ótica com agendamento de exame de vista pelo WhatsApp.",
+    imagem: "projetos/otica-noblesse.jpg",
+  },
+  {
+    frente: "Sites",
+    cliente: "B&A Sign",
+    url: "richarddias131-cloud.github.io/b-a-site",
+    link: "https://richarddias131-cloud.github.io/b-a-site/",
+    resultado: "Site da gráfica com os materiais e o pedido de orçamento pelo WhatsApp.",
+    imagem: "projetos/ba-sign.jpg",
+  },
+  {
+    frente: "Dados e BI",
+    cliente: "Cresbi Analyzer",
+    url: "cresbi.com.br/analyzer",
+    link: "analyzer/",
+    resultado: "Diagnóstico comercial feito a partir da base de vendas da empresa.",
+    imagem: "projetos/cresbi-analyzer.jpg",
+  },
 ];
 
 export const faq = [

@@ -70,8 +70,10 @@ Sem essa troca, o Pages passa a mostrar este README em vez do site.
 ## Prints dos projetos
 
 1. Coloque as imagens em `public/projetos/` (ex.: `public/projetos/cliente-1.jpg`).
-2. Em `content/site.ts`, no item do projeto, preencha `imagem: "/projetos/cliente-1.jpg"`,
-   além de `cliente`, `url`, `frente` e `resultado`.
+2. Em `content/site.ts`, no item do projeto, preencha `imagem: "projetos/cliente-1.jpg"`
+   (sem barra inicial), além de `cliente`, `url`, `link`, `frente` e `resultado`.
+
+Os prints atuais (Ótica Noblesse, B&A Sign e Cresbi Analyzer) têm 960 × 1200px.
 
 A "janela" mostra o topo do print e rola até o fim no hover. Use prints de
 página inteira com proporção de cerca de 16:20 (por exemplo 1440 × 1800px),
@@ -81,7 +83,6 @@ em JPG ou WebP com até ~250 KB.
 
 | Onde | Placeholder |
 | --- | --- |
-| `content/site.ts` → `projetos` (3 cards) | `[NOME DO CLIENTE]`, `[cliente].com.br`, `[RESULTADO EM UMA FRASE]`, print em `imagem` |
 | `content/site.ts` → `faq` ("Quanto tempo leva?") | `[X]` a `[Y]` semanas |
 | Seção "Por que a CRESBI" (opcional) | linha de métricas `[X] projetos entregues · [Y] empresas atendidas`: não foi publicada para não mostrar colchetes no ar. Se houver números reais, inclua em `components/sections/WhyCresbi.tsx` |
 
