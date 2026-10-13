@@ -1,0 +1,76 @@
+/* CRESBI — tokens gerados de tokens.json. Tema escuro é o padrão; use data-theme="light" para impressão/PDF. */
+@font-face { font-family: "Geist"; src: url("fonts/Geist-Variable.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Geist Mono"; src: url("fonts/GeistMono-Variable.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+:root, [data-theme="dark"] {
+  --ground: #0A0A0B;
+  --surface: #141416;
+  --surface-raised: #1A1A1D;
+  --line: #26262B;
+  --line-strong: #6E6B72;
+  --text: #F2EFE8;
+  --text-muted: #A6A29A;
+  --text-subtle: #85817A;
+  --gold: #C9A961;
+  --gold-strong: #DDBF7A;
+  --gold-deep: #6E5A32;
+  --gold-soft: #221D13;
+  --on-gold: #14110A;
+  --positive: #58C4B8;
+  --positive-soft: #10221F;
+  --negative: #E8875E;
+  --negative-soft: #2A1810;
+  --focus: var(--gold-strong);
+  --shadow-pop: 0 12px 32px rgba(0,0,0,0.55);
+}
+[data-theme="light"] {
+  --ground: #F6F4EF;
+  --surface: #FFFFFF;
+  --surface-raised: #EEEBE4;
+  --line: #E2DDD3;
+  --line-strong: #827C71;
+  --text: #15140F;
+  --text-muted: #57534B;
+  --text-subtle: #6E6A62;
+  --gold: #7E6026;
+  --gold-strong: #6A4F1C;
+  --gold-deep: #D9C59A;
+  --gold-soft: #F2EAD6;
+  --on-gold: #FFFFFF;
+  --positive: #17736E;
+  --positive-soft: #E0F1EF;
+  --negative: #A84722;
+  --negative-soft: #F8E6DD;
+  --focus: var(--gold-strong);
+  --shadow-pop: 0 12px 32px rgba(21,20,15,0.12);
+}
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+  --font-sans: "Geist", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+.display-xl { font-family: var(--font-sans); font-size: 64px; line-height: 68px; font-weight: 600; letter-spacing: -0.045em; }
+.display-l { font-family: var(--font-sans); font-size: 44px; line-height: 50px; font-weight: 600; letter-spacing: -0.035em; }
+.heading-1 { font-family: var(--font-sans); font-size: 30px; line-height: 36px; font-weight: 600; letter-spacing: -0.025em; }
+.heading-2 { font-family: var(--font-sans); font-size: 22px; line-height: 28px; font-weight: 600; letter-spacing: -0.01em; }
+.heading-3 { font-family: var(--font-sans); font-size: 17px; line-height: 24px; font-weight: 600; }
+.body-l { font-family: var(--font-sans); font-size: 17px; line-height: 28px; font-weight: 400; }
+.body { font-family: var(--font-sans); font-size: 15px; line-height: 24px; font-weight: 400; }
+.body-s { font-family: var(--font-sans); font-size: 13px; line-height: 20px; font-weight: 400; }
+.overline { font-family: var(--font-mono); font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+.code { font-family: var(--font-mono); font-size: 13px; line-height: 20px; font-weight: 400; }
+.kpi { font-family: var(--font-mono); font-size: 40px; line-height: 44px; font-weight: 450; letter-spacing: -0.02em; }
+.data { font-family: var(--font-mono); font-size: 14px; line-height: 20px; font-weight: 400; }
+.data-s { font-family: var(--font-mono); font-size: 12px; line-height: 16px; font-weight: 500; }

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><meta charset="utf-8"><title>preview</title>
+<style>
+html,body{margin:0}
+body{background:var(--ground);color:var(--text);font-family:var(--font-sans);font-size:15px;line-height:24px;-webkit-font-smoothing:antialiased}
+.pad{padding:24px}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+[data-theme="light"] .only-dark{display:none}
+:root:not([data-theme="light"]) .only-light{display:none}
+
+</style></head>
+<body>
+<div class="pad" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px">
+<label class="cr-field"><span class="cr-field__label">Nome da empresa</span><input class="cr-field__input" placeholder="Ex.: Auto Center Vila Nova"><span class="cr-field__help">Como aparece na nota fiscal.</span></label>
+<label class="cr-field cr-field--error"><span class="cr-field__label">WhatsApp</span><input class="cr-field__input" value="11 9323"><span class="cr-field__help">Informe DDD e os 9 dígitos.</span></label>
+</div>
+</body>
+</html>

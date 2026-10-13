@@ -1,0 +1,22 @@
+.layout { display: grid; gap: var(--space-8); }
+@media (min-width: 1024px) {
+  .layout { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-16); align-items: start; }
+  .head { position: sticky; top: calc(72px + var(--space-12)); }
+}
+
+.timeline { list-style: none; position: relative; display: flex; flex-direction: column; gap: var(--space-12); padding-left: var(--space-12); }
+.rail { position: absolute; left: 7px; top: 10px; bottom: 0; width: 1px; background: var(--line); }
+.fill { position: absolute; inset: 0; background: var(--gold); transform-origin: 50% 0; }
+
+.step { position: relative; }
+.marker {
+  position: absolute; left: calc(-1 * var(--space-12) + 2px); top: 5px;
+  width: 11px; height: 11px; transform: rotate(45deg);
+  background: var(--ground); border: 1px solid var(--line-strong);
+  transition: background-color .2s ease, border-color .2s ease;
+}
+.reached { background: var(--gold); border-color: var(--gold); }
+
+.body { display: flex; flex-direction: column; gap: var(--space-2); max-width: 520px; }
+.label { font: 400 13px/20px var(--font-mono); color: var(--text-subtle); }
+.text { color: var(--text-muted); }

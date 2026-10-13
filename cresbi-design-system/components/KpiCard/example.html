@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><meta charset="utf-8"><title>preview</title>
+<style>
+html,body{margin:0}
+body{background:var(--ground);color:var(--text);font-family:var(--font-sans);font-size:15px;line-height:24px;-webkit-font-smoothing:antialiased}
+.pad{padding:24px}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+[data-theme="light"] .only-dark{display:none}
+:root:not([data-theme="light"]) .only-light{display:none}
+
+</style></head>
+<body>
+<div class="pad" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+<div class="cr-kpi">
+<span class="cr-overline">Receita no período</span>
+<span class="cr-kpi__value">R$ 1,28 mi</span>
+<svg class="cr-kpi__spark" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path class="area" d="M0 34 L25 30 L50 31 L75 24 L100 26 L125 18 L150 20 L175 10 L200 6 L200 40 L0 40Z"/><path d="M0 34 L25 30 L50 31 L75 24 L100 26 L125 18 L150 20 L175 10 L200 6"/></svg>
+<div class="cr-kpi__foot"><span class="cr-delta cr-delta--up">+12,4%</span> vs. jan–set 2025</div>
+</div>
+<div class="cr-kpi">
+<span class="cr-overline">Ticket médio</span>
+<span class="cr-kpi__value">R$ 342</span>
+<svg class="cr-kpi__spark" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path class="area" d="M0 14 L25 16 L50 12 L75 18 L100 20 L125 19 L150 24 L175 26 L200 25 L200 40 L0 40Z"/><path d="M0 14 L25 16 L50 12 L75 18 L100 20 L125 19 L150 24 L175 26 L200 25"/></svg>
+<div class="cr-kpi__foot"><span class="cr-delta cr-delta--down">−3,1%</span> vs. jan–set 2025</div>
+</div>
+<div class="cr-kpi">
+<span class="cr-overline cr-overline--gold">Receita em risco</span>
+<span class="cr-kpi__value cr-kpi__value--gold">R$ 186 mil</span>
+<svg class="cr-kpi__spark" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path class="area" d="M0 30 L25 28 L50 29 L75 22 L100 20 L125 22 L150 16 L175 14 L200 12 L200 40 L0 40Z"/><path d="M0 30 L25 28 L50 29 L75 22 L100 20 L125 22 L150 16 L175 14 L200 12"/></svg>
+<div class="cr-kpi__foot">38 clientes sem compra há 90+ dias</div>
+</div>
+</div>
+</body>
+</html>

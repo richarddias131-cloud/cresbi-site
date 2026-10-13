@@ -1,136 +1,138 @@
-# CRESBI — Site Institucional
+# CRESBI — cresbi.com.br
 
-Site oficial da marca CRESBI. HTML/CSS/JS estático, sem build, sem
-dependências externas — abrir `index.html` diretamente no navegador já
-funciona.
+Landing page oficial da CRESBI: Next.js (App Router) + TypeScript, exportada
+como site estático (`out/`). Animações com Motion, rolagem suave com Lenis e
+um `<canvas>` próprio para a grade do hero.
 
-A CRESBI é posicionada como a marca de inteligência de negócios; os
-produtos (CRESBI Analyzer, CRESBI Analyzer Varejo) são soluções dentro
-dela, não o contrário. Esse é o motivo da estrutura de pastas abaixo: a
-home nunca deveria precisar ser reconstruída para receber um produto novo.
+A fonte da verdade visual é `cresbi-design-system/` (manual da marca, tokens,
+componentes `cr-*`, logos e fontes). **Não edite essa pasta**: o site lê dela.
+
+## Como rodar
+
+Requer Node 20+ (testado com Node 22).
+
+```bash
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # gera o site estático em out/
+npm run lint       # ESLint (sem avisos)
+npm run typecheck  # TypeScript
+npm run shots      # screenshots em 390/768/1440px, com e sem redução de movimento (.shots/)
+```
+
+`npm run dev` e `npm run build` rodam antes `scripts/sync-tokens.mjs`, que
+copia `cresbi-design-system/tokens.css` para `app/styles/tokens.generated.css`
+(trocando o caminho das fontes para `/fonts/`) e as fontes Geist para
+`public/fonts/`. O arquivo gerado não vai para o git.
+
+Para refazer a imagem de compartilhamento e o ícone do iPhone
+(`public/og-image.png`, `public/apple-touch-icon.png`):
+
+```bash
+node scripts/generate-images.mjs
+```
+
+## Deploy
+
+### Vercel (recomendado)
+
+1. Em vercel.com, **Add New → Project** e importe este repositório.
+2. A Vercel detecta o Next.js sozinha: build `npm run build`, saída `out/`
+   (vem do `output: "export"` em `next.config.ts`). Não precisa de variáveis
+   de ambiente.
+3. Em **Settings → Domains**, adicione `cresbi.com.br` e `www.cresbi.com.br`
+   e ajuste o DNS conforme a Vercel indicar.
+4. Depois que o domínio estiver na Vercel, apague
+   `.github/workflows/pages.yml` e o `public/CNAME`.
+
+### GitHub Pages (como o site está hoje)
+
+O domínio hoje é servido pelo GitHub Pages direto da branch `main`. Com o
+Next.js, a raiz do repositório deixa de ter um `index.html`, então antes de
+juntar esta versão na `main`:
+
+- em **Settings → Pages → Build and deployment**, troque a origem para
+  **GitHub Actions**; o workflow `.github/workflows/pages.yml` faz o build e
+  publica `out/` a cada push na `main`.
+
+Sem essa troca, o Pages passa a mostrar este README em vez do site.
+
+## Onde trocar textos
+
+- `content/site.ts`: frentes (cards de serviço e menu), linhas do Console do
+  hero, faixa, fluxo de automação, etapas do método, diferenciais, projetos e
+  FAQ.
+- `lib/whatsapp.ts`: número, e-mail, Instagram e as mensagens prontas de
+  cada botão do WhatsApp (incluindo a do formulário).
+- Títulos e textos de cada seção: `components/sections/*.tsx`.
+- Título, descrição e dados estruturados (SEO): `app/layout.tsx`.
+
+## Prints dos projetos
+
+1. Coloque as imagens em `public/projetos/` (ex.: `public/projetos/cliente-1.jpg`).
+2. Em `content/site.ts`, no item do projeto, preencha `imagem: "/projetos/cliente-1.jpg"`,
+   além de `cliente`, `url`, `frente` e `resultado`.
+
+A "janela" mostra o topo do print e rola até o fim no hover. Use prints de
+página inteira com proporção de cerca de 16:20 (por exemplo 1440 × 1800px),
+em JPG ou WebP com até ~250 KB.
+
+## Placeholders que faltam preencher
+
+| Onde | Placeholder |
+| --- | --- |
+| `content/site.ts` → `projetos` (3 cards) | `[NOME DO CLIENTE]`, `[cliente].com.br`, `[RESULTADO EM UMA FRASE]`, print em `imagem` |
+| `content/site.ts` → `faq` ("Quanto tempo leva?") | `[X]` a `[Y]` semanas |
+| Seção "Por que a CRESBI" (opcional) | linha de métricas `[X] projetos entregues · [Y] empresas atendidas`: não foi publicada para não mostrar colchetes no ar. Se houver números reais, inclua em `components/sections/WhyCresbi.tsx` |
+
+O painel da seção "Dados e BI" usa os números e nomes de exemplo do guia do
+design system e está marcado como `exemplo ilustrativo` na tela.
 
 ## Estrutura
 
 ```
-CRESBI SITE/
-├── index.html              → Home institucional
-├── analyzer/                → Página de vendas completa do CRESBI Analyzer
-│   ├── index.html            (self-contained: styles.css/script.js próprios,
-│   ├── styles.css             não usa assets/ da raiz — ver "Páginas de
-│   ├── script.js               produto" abaixo)
-│   └── exemplo-analise-demonstrativa.html
-├── analyzer-varejo/          → Página de vendas completa do CRESBI Analyzer
-│   ├── index.html              Varejo, mesma estrutura da de analyzer/ acima
-│   ├── styles.css               (também self-contained; styles.css/script.js
-│   ├── script.js                 são cópias, não os mesmos arquivos)
-│   └── exemplo-analise-demonstrativa.html
-├── sobre/index.html        → Página institucional (curta)
-├── contato/index.html      → Canais de contato
-├── assets/
-│   ├── css/styles.css      → Design system único, compartilhado por todas as páginas
-│   ├── js/main.js          → Header, menu mobile, dropdown, animação de entrada, CTA
-│   └── logo/
-│       ├── cresbi.png       → Arte original fornecida (ícone + "CRESBI"), não
-│       │                       usada no site — mantida só de referência
-│       ├── cresbi-mark.png  → Recorte só do ícone, também não usado no site
-│       └── favicon.png      → Ícone da aba do navegador (chip de cor ink/petrol,
-│                               sem ilustração — ver "Marca" abaixo)
-├── robots.txt
-└── sitemap.xml
+app/
+  layout.tsx          metadata, Open Graph, JSON-LD, fontes, tema escuro, Lenis
+  page.tsx            monta as seções
+  globals.css         importa tokens (gerado) + bundle.css do design system
+components/
+  ds/                 wrappers React dos componentes cr-* (Button, Tag, Delta,
+                      KpiCard, InsightCard, Console, Field, ServiceCard, Logo)
+  sections/           Header, Hero, Ticker, Services, AutomationFlow, Process,
+                      DataShowcase, WhyCresbi, Cases, Faq, FinalCta, Footer
+  motion/             constantes de movimento, Reveal, SplitText, Typewriter,
+                      CountUp, Magnetic, GridCanvas, ScrollProgress, SmoothScroll
+content/site.ts       textos
+lib/whatsapp.ts       links wa.me e mensagens
+public/               fontes, logos, favicon, OG, robots, sitemap e as páginas antigas
+scripts/              sync de tokens, geração de imagens e screenshots
+cresbi-design-system/ referência da marca (não editar)
 ```
 
-Todas as páginas institucionais (home, sobre, contato, analyzer-varejo)
-importam o **mesmo** `assets/css/styles.css` e `assets/js/main.js` — não
-crie folhas de estilo por página. A exceção é `analyzer/`: como é a página
-de vendas completa do produto, ela é self-contained com seu próprio
-`styles.css`/`script.js` (design system idêntico, mas copiado, não
-compartilhado — ver "Páginas de produto" abaixo).
+### Movimento
 
-Um produto novo (ex.: `CRESBI Analyzer X`) deve virar uma nova pasta e
-ganhar um item no dropdown "SOLUÇÕES" do header (repetido em todas as
-páginas) e no rodapé.
+Tudo sai de `components/motion/constants.ts`: easing `cubic-bezier(0.22, 1, 0.36, 1)`,
+durações de 200/500/800ms e stagger de 50–80ms. Com
+`prefers-reduced-motion: reduce`, o Lenis, o holofote, a faixa, os pacotes do
+fluxo, o pulso do símbolo e o cursor piscando ficam desligados, e o conteúdo
+aparece já no estado final, com fades de até 200ms. Loops (faixa, fluxo,
+canvas, pulso) pausam fora da tela e com a aba oculta.
 
-## Marca
+A entrada do hero usa animação CSS (`components/motion/enter.module.css`) em
+vez de JS, para o título aparecer na primeira pintura sem esperar a
+hidratação (LCP).
 
-A marca CRESBI no site é **só tipográfica** — a palavra "CRESBI" em
-Bahnschrift, sem ícone/monograma ao lado, no header e no rodapé (classe
-`.brand-word`). Uma ilustração (cérebro + gráfico) foi testada como marca
-d'água do header/rodapé e removida a pedido — não usar `cresbi.png` nem
-`cresbi-mark.png` como logo visível no site. O favicon é apenas um chip
-de cor (ink + barra petróleo), sem ilustração, para não repetir o mesmo
-problema em miniatura.
+## Páginas antigas
 
-## Identidade visual
+As páginas do site anterior continuam publicadas, sem alteração, a partir de
+`public/`:
 
-Os tokens de cor e tipografia em `assets/css/styles.css` são os mesmos do
-site do CRESBI Analyzer (`CRESBI ANALYZER/Site/styles.css`): `--ink`,
-`--petrol`, `--cobalt`, `--paper`, fonte de destaque Bahnschrift/Roboto
-Condensed. Isso é intencional — o institucional e os produtos precisam
-parecer a mesma marca. Ao editar cores, atualize os dois lugares ou migre
-ambos para um arquivo de tokens compartilhado.
+- `/analyzer/` e `/analyzer-varejo/`: páginas de vendas dos produtos, com os
+  relatórios demonstrativos (`exemplo-analise-demonstrativa.html`) de cada um.
+  Detalhes em `public/analyzer/README.md`.
+- `/sobre/` e `/contato/`: páginas institucionais antigas, com `assets/` próprio.
+- `/exemplo-analise-demonstrativa.html`: cópia do relatório demonstrativo do
+  Cresbi Analyzer, usada pelo botão "Ver relatório de exemplo".
 
-Princípio central do layout: alternância entre blocos claros e escuros
-(ver comentários `<!-- ======= -->` dentro de `index.html`). Não adicione
-uma seção nova sem decidir conscientemente se ela é clara ou escura.
-
-## Configuração antes de publicar
-
-No topo de `assets/js/main.js`:
-
-```js
-const SITE_CONFIG = Object.freeze({
-  whatsappNumber: "5511932317374",
-  whatsappMessage: "...",
-  email: "contato@cresbi.com.br"
-});
-```
-
-Todo botão/link com `data-cta` recebe automaticamente o link de WhatsApp
-configurado ali e abre em nova aba. Não escreva `href` de WhatsApp direto
-no HTML — sempre use `data-cta`.
-
-## Páginas de produto (`/analyzer/` e `/analyzer-varejo/`)
-
-Por design, a Home **não** lista todos os recursos dos produtos — ela
-posiciona a marca e direciona para a página certa (ver seção 19 do
-briefing original).
-
-- **`/analyzer/`** já é a página de vendas completa do CRESBI Analyzer
-  (a mesma que vivia em `CRESBI ANALYZER/Site/`, copiada para cá). Ela é
-  self-contained — não depende de `assets/` da raiz. Ao integrá-la, o
-  header/rodapé dela ganharam links de volta para o site institucional
-  (`CRESBI` → `../index.html`, `CRESBI Analyzer Varejo` → o outro
-  produto) além dos links internos que ela já tinha (`Fale com a gente`,
-  `Contato`, `Exemplo de análise`, `Privacidade`) — esses últimos não
-  foram alterados.
-  A página também foi enxugada (~24.900px → ~17.850px, 28% menor): foram
-  removidas as seções "Dinheiro em risco", "Inteligência sobre
-  vendedores", "Visão 360º da operação", "Momentos de uso", "Exemplo
-  visual" e "Antes de analisar sua base" — redundantes com outras
-  seções que ficaram (ex.: vendedores continua coberto em "O que o
-  Analyzer analisa" e no que-você-recebe da oferta) — e o FAQ caiu de 15
-  para 8 perguntas (mantidas as que removem objeção de compra; cortadas
-  as mais operacionais/nicho). As seções restantes foram renumeradas em
-  sequência (01–13). Se essa página for atualizada de novo por fora
-  (copiada de `CRESBI ANALYZER/Site/` mais recente), repita esses ajustes
-  de link e, se o objetivo continuar sendo uma página mais curta, os
-  cortes acima — ou eles se perdem.
-- **`/analyzer-varejo/`** segue exatamente a mesma estrutura de `/analyzer/`
-  (13 seções numeradas + hero + qualificação + FAQ + CTA final), com o
-  copy adaptado para varejo/consumidor final. Diferente do Analyzer, ela
-  não foi copiada de um site externo — foi escrita do zero seguindo o
-  padrão do Analyzer, com o conteúdo (RFM, cohorts, cesta de compras,
-  curva ABC, segmentos de comportamento) baseado na metodologia real do
-  produto em `CRESBI ANALYZER B2C/docs/METODOLOGIA.md`. O `exemplo-
-  analise-demonstrativa.html` dela é o relatório demonstrativo real da
-  "Loja Demonstração" (copiado de `CRESBI ANALYZER B2C/Relatorios
-  Demonstrativos/`). Se a metodologia do produto mudar, revise se o copy
-  desta página ainda reflete o que o Analyzer Varejo realmente entrega.
-
-## O que falta antes de ir ao ar
-
-- [ ] Confirmar o domínio final e atualizar `canonical` e os links em
-      `robots.txt` / `sitemap.xml` (estão apontando para `cresbi.com.br`).
-- [ ] Validar textos com o time (todo o copy segue as regras do
-      briefing: sem "revolucione seu negócio", "leve para o próximo
-      nível" etc.).
+Elas ainda usam a identidade visual antiga. Vale migrar para o design system
+ou redirecionar para a home.

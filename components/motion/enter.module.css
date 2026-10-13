@@ -1,0 +1,13 @@
+/* Entrada do hero em CSS puro: mesmo easing e durações de constants.ts. */
+.enter { animation: enterUp .5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.word { animation: wordUp .8s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@keyframes enterUp { from { opacity: 0; transform: translateY(16px); } }
+/* Começa com um fio do topo das letras visível na máscara: o título já conta como pintado
+   na primeira renderização (LCP), e a revelação de baixo para cima continua igual. */
+@keyframes wordUp { from { transform: translateY(86%); } }
+@keyframes fadeIn { from { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .enter, .word { animation: fadeIn .2s linear both; animation-delay: 0s !important; }
+}
