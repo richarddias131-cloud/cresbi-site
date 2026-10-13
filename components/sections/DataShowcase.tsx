@@ -161,7 +161,7 @@ export function DataShowcase() {
         </Reveal>
 
         <Reveal className={styles.actions}>
-          <Button variant="secondary" href="/exemplo-analise-demonstrativa.html" {...external}>
+          <Button variant="secondary" href="exemplo-analise-demonstrativa.html" {...external}>
             Ver relatório de exemplo
           </Button>
           <Button href={whatsappLink(messages.raioX)} {...external}>
