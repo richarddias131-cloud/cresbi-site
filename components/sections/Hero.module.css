@@ -19,7 +19,7 @@
 
 .copy { display: flex; flex-direction: column; gap: var(--space-6); min-width: 0; }
 /* display-xl cai para 40px no celular mantendo o espaçamento negativo. */
-.title { font-size: 40px; line-height: 44px; max-width: 16ch; text-wrap: balance; }
+.title { font-size: 40px; line-height: 44px; max-width: 18ch; text-wrap: balance; }
 @media (min-width: 768px) { .title { font-size: 56px; line-height: 60px; } }
 @media (min-width: 1280px) { .title { font-size: 64px; line-height: 68px; } }
 .lead { color: var(--text-muted); max-width: 540px; }
@@ -32,12 +32,5 @@
 .consoleLine :global(.cr-console__status) { white-space: nowrap; }
 
 .cards { display: grid; gap: var(--space-4); }
-@media (min-width: 480px) { .cards { grid-template-columns: 1fr 1fr; } }
 .mini { padding: var(--space-4) var(--space-6) var(--space-6); gap: var(--space-2); }
-/* Valor do KPI em versão compacta (28px), derivado de .cr-kpi__value (40px) para caber em meia coluna. */
-.miniValue { font-size: 28px; line-height: 32px; }
-.bars { display: flex; align-items: flex-end; gap: 6px; height: 48px; margin-top: var(--space-2); }
-.bar, .barGold { flex: 1; transform-origin: 50% 100%; border-radius: 1px; }
-.bar { background: var(--gold-deep); }
-.barGold { background: var(--gold); }
 .stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: var(--space-2); }

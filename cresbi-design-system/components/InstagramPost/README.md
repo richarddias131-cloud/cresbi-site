@@ -6,7 +6,7 @@ Arte de feed do @cresbi.oficial em 1080 × 1350 (4:5), sempre no tema escuro.
 
 **O consumidor fornece:** a frente de serviço ou categoria (overline), uma manchete de até 12 palavras com UM número ou termo em destaque, e uma frase de apoio.
 
-- Overline em mono com o índice da frente ("02 / Sites").
+- Overline em mono com o índice da frente ("02 / Presença digital").
 - Manchete em Geist 600 com espaçamento apertado, afirmativa e voltada ao resultado do cliente; use um número quando houver.
 - Só uma palavra ou número em ouro por arte.
 - Margem de 96px (≈ `space-24`) nos quatro lados; nada encosta na borda.

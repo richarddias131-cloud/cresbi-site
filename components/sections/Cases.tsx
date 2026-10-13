@@ -26,23 +26,28 @@ export function Cases() {
                 {...(p.link.startsWith("http") ? external : {})}
                 aria-label={`${p.cliente}: abrir ${p.url}`}
               >
-                <div className={styles.window}>
-                  <div className={styles.bar}>
-                    <span className={styles.dots} aria-hidden="true">
-                      ● ● ●
-                    </span>
-                    <span className={styles.url}>{p.url}</span>
-                  </div>
-                  <div className={styles.screen}>
-                    <div className={styles.page}>
-                      {p.imagem ? (
-                        <img src={p.imagem} alt={`Página inicial do site ${p.cliente}`} loading="lazy" decoding="async" />
-                      ) : (
-                        <div className={styles.placeholder}>
-                          <span>[PRINT DO PROJETO]</span>
-                        </div>
-                      )}
+                {/* Print desktop numa "janela" e print mobile num celular, ambos reais. */}
+                <div className={styles.stage}>
+                  <div className={styles.window}>
+                    <div className={styles.bar}>
+                      <span className={styles.dots} aria-hidden="true">
+                        ● ● ●
+                      </span>
+                      <span className={styles.url}>{p.url}</span>
                     </div>
+                    <div className={styles.screen}>
+                      <div className={styles.page}>
+                        <img src={p.imagem} alt={`Página inicial de ${p.cliente} no computador`} loading="lazy" decoding="async" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className={styles.phone}>
+                    <img
+                      src={p.imagemMobile}
+                      alt={`Página inicial de ${p.cliente} no celular`}
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
                 </div>
                 <div className={styles.meta}>
@@ -50,6 +55,7 @@ export function Cases() {
                   <h3 className="heading-3">
                     {p.cliente} <span className="arrow" aria-hidden="true">→</span>
                   </h3>
+                  {p.local ? <span className={styles.local}>{p.local}</span> : null}
                   <p className={styles.result}>{p.resultado}</p>
                 </div>
               </a>

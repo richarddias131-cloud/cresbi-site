@@ -1,12 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
+import { frentes } from "@/content/site";
 import { INSTAGRAM_URL, SITE_URL, WHATSAPP_NUMBER } from "@/lib/whatsapp";
 import "./globals.css";
 
 const title = "CRESBI · Tecnologia sob medida para empresas que querem crescer";
 const description =
-  "Sistemas sob medida, sites, presença digital, dados e automações para pequenas e médias empresas.";
+  "Sistemas sob medida, presença digital, automações e implementação de IA para pequenas e médias empresas.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -50,6 +51,16 @@ const jsonLd = {
   telephone: `+${WHATSAPP_NUMBER}`,
   areaServed: "BR",
   sameAs: [INSTAGRAM_URL],
+  knowsAbout: frentes.map((f) => f.title),
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Frentes da CRESBI",
+    itemListElement: frentes.map((f, i) => ({
+      "@type": "Offer",
+      position: i + 1,
+      itemOffered: { "@type": "Service", name: f.title, description: f.body },
+    })),
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

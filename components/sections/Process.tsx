@@ -32,9 +32,9 @@ export function Process() {
       <div className={`container ${styles.layout}`}>
         <div className={`section-head ${styles.head}`}>
           <Reveal>
-            <span className="cr-overline">{"// 03 método"}</span>
+            <span className="cr-overline">{"// 04 método"}</span>
           </Reveal>
-          <SplitText id="metodo-title" className="display-l title-l" text="Do diagnóstico à evolução contínua." />
+          <SplitText id="metodo-title" className="display-l title-l" text="Do diagnóstico ao acompanhamento." />
         </div>
 
         <ol ref={listRef} className={styles.timeline}>

@@ -4,6 +4,11 @@ Landing page oficial da CRESBI: Next.js (App Router) + TypeScript, exportada
 como site estático (`out/`). Animações com Motion, rolagem suave com Lenis e
 um `<canvas>` próprio para a grade do hero.
 
+A CRESBI entrega tecnologia sob medida para pequenas e médias empresas, em
+quatro frentes, nesta ordem: **01 Sistemas sob medida** (inclui o Cresbi
+Analyzer), **02 Presença digital** (sites, Google Meu Negócio e Instagram),
+**03 Automações** e **04 Implementação de IA**.
+
 A fonte da verdade visual é `cresbi-design-system/` (manual da marca, tokens,
 componentes `cr-*`, logos e fontes). **Não edite essa pasta**: o site lê dela.
 
@@ -59,9 +64,9 @@ Sem essa troca, o Pages passa a mostrar este README em vez do site.
 
 ## Onde trocar textos
 
-- `content/site.ts`: frentes (cards de serviço e menu), linhas do Console do
-  hero, faixa, fluxo de automação, etapas do método, diferenciais, projetos e
-  FAQ.
+- `content/site.ts`: as quatro frentes (cards de serviço, menu, rodapé, atalhos
+  do WhatsApp e JSON-LD), linhas do Console do hero, faixa, fluxo de automação,
+  exemplos de IA, etapas do método, diferenciais, projetos e FAQ.
 - `lib/whatsapp.ts`: número do WhatsApp, Instagram e as mensagens prontas de
   cada botão do WhatsApp (incluindo os atalhos por frente da seção de contato).
   O e-mail foi tirado do site até a caixa contato@cresbi.com.br estar configurada.
@@ -70,15 +75,14 @@ Sem essa troca, o Pages passa a mostrar este README em vez do site.
 
 ## Prints dos projetos
 
-1. Coloque as imagens em `public/projetos/` (ex.: `public/projetos/cliente-1.jpg`).
-2. Em `content/site.ts`, no item do projeto, preencha `imagem: "projetos/cliente-1.jpg"`
-   (sem barra inicial), além de `cliente`, `url`, `link`, `frente` e `resultado`.
+Cada projeto tem dois prints reais em `public/projetos/`: o do computador
+(`cliente.jpg`, 960 × 1200px, tirado de uma tela de 1440 × 1800px) e o do celular
+(`cliente-mobile.jpg`, 360 × 780px, tirado de uma tela de 390 × 844px). Em
+`content/site.ts`, preencha `imagem` e `imagemMobile` (sem barra inicial), além de
+`cliente`, `local`, `url`, `link`, `frente` e `resultado`.
 
-Os prints atuais (Ótica Noblesse, B&A Sign e Cresbi Analyzer) têm 960 × 1200px.
-
-A "janela" mostra o topo do print e rola até o fim no hover. Use prints de
-página inteira com proporção de cerca de 16:20 (por exemplo 1440 × 1800px),
-em JPG ou WebP com até ~250 KB.
+A "janela" mostra o topo do print do computador e rola até o fim no hover; o
+celular fica sobreposto no canto. Use JPG ou WebP com até ~250 KB.
 
 ## Placeholders que faltam preencher
 
@@ -86,9 +90,6 @@ em JPG ou WebP com até ~250 KB.
 | --- | --- |
 | `content/site.ts` → `faq` ("Quanto tempo leva?") | `[X]` a `[Y]` semanas |
 | Seção "Por que a CRESBI" (opcional) | linha de métricas `[X] projetos entregues · [Y] empresas atendidas`: não foi publicada para não mostrar colchetes no ar. Se houver números reais, inclua em `components/sections/WhyCresbi.tsx` |
-
-O painel da seção "Dados e BI" usa os números e nomes de exemplo do guia do
-design system e está marcado como `exemplo ilustrativo` na tela.
 
 ## Estrutura
 
@@ -98,17 +99,17 @@ app/
   page.tsx            monta as seções
   globals.css         importa tokens (gerado) + bundle.css do design system
 components/
-  ds/                 wrappers React dos componentes cr-* (Button, Tag, Delta,
-                      KpiCard, InsightCard, Console, Field, ServiceCard, Logo)
-  sections/           Header, Hero, Ticker, Services, AutomationFlow, Process,
-                      DataShowcase, WhyCresbi, Cases, Faq, FinalCta, Footer
+  ds/                 wrappers React dos componentes cr-* (Button, Tag, Console,
+                      ServiceCard, Logo)
+  sections/           Header, Hero, Ticker, Services, AutomationFlow, AiSection,
+                      Process, WhyCresbi, Cases, Faq, FinalCta, Footer
   motion/             constantes de movimento, Reveal, SplitText, Typewriter,
-                      CountUp, Magnetic, GridCanvas, ScrollProgress, SmoothScroll
+                      Magnetic, GridCanvas, ScrollProgress, SmoothScroll
 content/site.ts       textos
 lib/whatsapp.ts       links wa.me e mensagens
-public/               fontes, logos, favicon, OG, robots, sitemap e as páginas antigas
+public/               fontes, logos, favicon, OG, robots, sitemap, prints e as páginas do Cresbi Analyzer
 scripts/              sync de tokens, geração de imagens e screenshots
-cresbi-design-system/ referência da marca (não editar)
+cresbi-design-system/ referência da marca (cores, fontes e componentes; não editar)
 ```
 
 ### Movimento
@@ -124,17 +125,20 @@ A entrada do hero usa animação CSS (`components/motion/enter.module.css`) em
 vez de JS, para o título aparecer na primeira pintura sem esperar a
 hidratação (LCP).
 
-## Páginas antigas
+## Cresbi Analyzer e redirecionamentos
 
-As páginas do site anterior continuam publicadas, sem alteração, a partir de
-`public/`:
+O Cresbi Analyzer é um sistema da frente 01 (Sistemas sob medida): um
+analisador de vendas. As páginas dele são HTML estático em `public/`:
 
-- `/analyzer/` e `/analyzer-varejo/`: páginas de vendas dos produtos, com os
-  relatórios demonstrativos (`exemplo-analise-demonstrativa.html`) de cada um.
-  Detalhes em `public/analyzer/README.md`.
-- `/sobre/` e `/contato/`: páginas institucionais antigas, com `assets/` próprio.
-- `/exemplo-analise-demonstrativa.html`: cópia do relatório demonstrativo do
-  Cresbi Analyzer, usada pelo botão "Ver relatório de exemplo".
+- `/analyzer/` e `/analyzer-varejo/`: páginas do produto, com os relatórios
+  demonstrativos (`exemplo-analise-demonstrativa.html`) de cada um. Detalhes em
+  `public/analyzer/README.md`.
 
-Elas ainda usam a identidade visual antiga. Vale migrar para o design system
-ou redirecionar para a home.
+Páginas antigas que viraram redirecionamento (HTML com `meta refresh`,
+`canonical` e `noindex`, porque o GitHub Pages não redireciona no servidor):
+
+| Endereço antigo | Vai para |
+| --- | --- |
+| `/sobre/` | `/#diferenciais` |
+| `/contato/` | `/#contato` |
+| `/exemplo-analise-demonstrativa.html` | `/analyzer/exemplo-analise-demonstrativa.html` |

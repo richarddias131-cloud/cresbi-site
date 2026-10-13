@@ -4,7 +4,7 @@ import { Ticker } from "@/components/sections/Ticker";
 import { Services } from "@/components/sections/Services";
 import { AutomationFlow } from "@/components/sections/AutomationFlow";
 import { Process } from "@/components/sections/Process";
-import { DataShowcase } from "@/components/sections/DataShowcase";
+import { AiSection } from "@/components/sections/AiSection";
 import { WhyCresbi } from "@/components/sections/WhyCresbi";
 import { Cases } from "@/components/sections/Cases";
 import { Faq } from "@/components/sections/Faq";
@@ -20,8 +20,8 @@ export default function Home() {
         <Ticker />
         <Services />
         <AutomationFlow />
+        <AiSection />
         <Process />
-        <DataShowcase />
         <WhyCresbi />
         <Cases />
         <Faq />
