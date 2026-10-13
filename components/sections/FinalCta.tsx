@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import { AtSign, MessageCircle } from "lucide-react";
 import { useRef } from "react";
 import { frentes } from "@/content/site";
-import { INSTAGRAM_HANDLE, INSTAGRAM_URL, WHATSAPP_DISPLAY, messages, whatsappLink } from "@/lib/whatsapp";
+import { INSTAGRAM_HANDLE, INSTAGRAM_URL, messages, whatsappLink } from "@/lib/whatsapp";
 import { Button, external } from "../ds/Button";
 import { EASE, REDUCED_FADE, VIEWPORT } from "../motion/constants";
 import { Reveal } from "../motion/Reveal";
@@ -56,9 +56,6 @@ export function FinalCta() {
           <div className={styles.card}>
             <div className={styles.head}>
               <span className="cr-overline">WhatsApp</span>
-              <a className={styles.number} href={whatsappLink(messages.geral)} {...external}>
-                {WHATSAPP_DISPLAY}
-              </a>
               <Button href={whatsappLink(messages.geral)} {...external} className={styles.cta}>
                 <MessageCircle className={`icon ${styles.ctaIcon}`} aria-hidden="true" />
                 Falar no WhatsApp <span aria-hidden="true">→</span>
