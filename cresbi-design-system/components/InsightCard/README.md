@@ -1,6 +1,6 @@
 # InsightCard
 
-Recomendação numerada dos relatórios e dashboards (frente Dados e BI, incluindo o Cresbi Analyzer): o "o que fazer" depois dos números.
+Recomendação numerada dos relatórios dos sistemas entregues, como o Cresbi Analyzer: o "o que fazer" depois dos números.
 
 **Marcação:** `article.cr-insight` com `.cr-insight__index` ("01"), `h3.cr-insight__title`, `p.cr-insight__body` e `.cr-insight__meta` (tags e uma ação fantasma).
 

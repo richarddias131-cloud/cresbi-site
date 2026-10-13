@@ -1,4 +1,4 @@
-CRESBI é um estúdio de soluções em tecnologia para pequenas e médias empresas brasileiras: desenha e entrega sistemas sob medida, sites, presença digital, análise de dados e automações. A identidade é **Ouro champanhe · Tech** — quase preto, um único ouro de assinatura, tipografia sem serifa precisa e detalhes de software (fonte de código, grade técnica, console). É uma marca cara: tudo deve parecer engenharia de alto nível, nunca agência genérica.
+CRESBI é um estúdio de soluções em tecnologia para pequenas e médias empresas brasileiras: desenha e entrega sistemas sob medida, presença digital, automações e implementação de IA. A identidade é **Ouro champanhe · Tech** — quase preto, um único ouro de assinatura, tipografia sem serifa precisa e detalhes de software (fonte de código, grade técnica, console). É uma marca cara: tudo deve parecer engenharia de alto nível, nunca agência genérica.
 
 ## Essência
 
@@ -12,11 +12,10 @@ A marca é uma só; as frentes não ganham cores, logos ou sub-marcas próprias.
 
 | Índice | Frente | O que entrega |
 | --- | --- | --- |
-| 01 | Sistemas sob medida | Sistemas internos, portais, automações e integrações feitos para o processo do cliente. |
-| 02 | Sites | Sites institucionais, landing pages e lojas com foco em conversão. |
-| 03 | Presença digital | Perfil no Google, Instagram, identidade e reputação online. |
-| 04 | Dados e BI | Dashboards, indicadores e o **Cresbi Analyzer**. |
-| 05 | Automações | Rotinas que rodam sozinhas: relatórios enviados no horário, integrações entre sistemas, planilhas e WhatsApp, robôs para tarefas repetitivas. |
+| 01 | Sistemas sob medida | Sistemas internos feitos para o processo de cada empresa, incluindo o **Cresbi Analyzer** (analisador de vendas). |
+| 02 | Presença digital | Sites, perfil no Google Meu Negócio, Instagram e a presença online do negócio como um todo. |
+| 03 | Automações | Tarefas repetitivas rodando sozinhas, com integração entre ferramentas: relatórios no horário, sistemas, planilhas e WhatsApp. |
+| 04 | Implementação de IA | IA aplicada a processos reais do negócio, com treinamento da equipe. |
 
 - Escreva os nomes exatamente assim, em frase (só a primeira maiúscula).
 - Produtos dentro de uma frente levam o prefixo "Cresbi" (Cresbi Analyzer).
@@ -77,7 +76,7 @@ Exemplos de chamada: "Falar no WhatsApp" · "Iniciar projeto →" · "$ ver_proj
 
 ## Componentes
 
-As classes estão em `components/bundle.css` (prefixo `cr-`): SiteHeader, ServiceCard, Console, Button, Tag e Input para o site e as propostas; KpiCard, InsightCard, DataTable e Delta para sistemas, dashboards e relatórios da frente Dados e BI; InstagramPost e InstagramCarousel para o @cresbi.oficial. Carregue `tokens.css` e depois `bundle.css`; cada componente tem a marcação no seu guia.
+As classes estão em `components/bundle.css` (prefixo `cr-`): SiteHeader, ServiceCard, Console, Button, Tag e Input para o site e as propostas; KpiCard, InsightCard, DataTable e Delta para os sistemas entregues (como o Cresbi Analyzer) e seus relatórios; InstagramPost e InstagramCarousel para o @cresbi.oficial. Carregue `tokens.css` e depois `bundle.css`; cada componente tem a marcação no seu guia.
 
 ## Instagram
 

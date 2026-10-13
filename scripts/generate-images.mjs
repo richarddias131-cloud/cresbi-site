@@ -30,7 +30,7 @@ h1 em{font-style:normal;color:var(--gold)}
 <div class="logo">${logo}</div>
 <div class="over">// estúdio de tecnologia para PMEs</div>
 <h1>Tecnologia sob medida para empresas que querem <em>crescer</em>.</h1>
-<div class="foot"><span>sistemas · sites · presença · dados · automações</span><span>cresbi.com.br</span></div>
+<div class="foot"><span>01 sistemas · 02 presença digital · 03 automações · 04 ia</span><span>cresbi.com.br</span></div>
 </div></body></html>`;
 
 const touch = `<!doctype html><html><head><style>html,body{margin:0}

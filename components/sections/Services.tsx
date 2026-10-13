@@ -16,7 +16,7 @@ export function Services() {
           <SplitText
             id="servicos-title"
             className="display-l title-l"
-            text="Cinco frentes. Um único parceiro de tecnologia."
+            text="Quatro frentes. Um único parceiro de tecnologia."
           />
         </div>
         <div className={styles.grid}>
