@@ -14,7 +14,17 @@ type Step = { line: number; part: "prefix" | "name" | "status" | "done" };
  * são digitados (~18ms por caractere). Todas as linhas já ocupam espaço desde o
  * início, então a digitação não desloca o layout.
  */
-export function HeroConsole({ startAt }: { startAt: number }) {
+type Line = { name: string; status: string; wait?: boolean };
+
+export function HeroConsole({
+  startAt,
+  lines = heroConsole,
+  title = "cresbi / entregas.log",
+}: {
+  startAt: number;
+  lines?: Line[];
+  title?: string;
+}) {
   const reduced = useReduced();
   const [step, setStep] = useState<Step>({ line: -1, part: "prefix" });
 
@@ -32,12 +42,12 @@ export function HeroConsole({ startAt }: { startAt: number }) {
   }, [step]);
 
   const next = (line: number) => {
-    setStep(line + 1 < heroConsole.length ? { line: line + 1, part: "prefix" } : { line, part: "done" });
+    setStep(line + 1 < lines.length ? { line: line + 1, part: "prefix" } : { line, part: "done" });
   };
 
   return (
-    <Console title="cresbi / entregas.log" className={styles.console}>
-      {heroConsole.map((l, i) => {
+    <Console title={title} className={styles.console}>
+      {lines.map((l, i) => {
         const shown = reduced || i <= step.line;
         const past = reduced || i < step.line || (i === step.line && step.part === "done");
         const typingName = i === step.line && step.part === "name";

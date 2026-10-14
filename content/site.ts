@@ -6,6 +6,8 @@ export type Frente = {
   nav: string;
   title: string;
   body: string;
+  /** Versão curta, usada na página de links. */
+  resumo: string;
   items: string[];
 };
 
@@ -16,6 +18,7 @@ export const frentes: Frente[] = [
     index: "01",
     nav: "sistemas",
     title: "Sistemas sob medida",
+    resumo: "Sistemas internos feitos para o seu processo.",
     body: "Sistemas internos feitos para o processo de cada empresa, do pedido ao relatório.",
     items: ["Gestão de pedidos e estoque", "Portal do cliente e painel administrativo", "Cresbi Analyzer, analisador de vendas"],
   },
@@ -24,6 +27,7 @@ export const frentes: Frente[] = [
     index: "02",
     nav: "presença",
     title: "Presença digital",
+    resumo: "Site, Google e Instagram trabalhando juntos.",
     body: "Site, Google e Instagram trabalhando juntos para a sua empresa ser encontrada e bem apresentada.",
     items: ["Sites e landing pages", "Perfil no Google Meu Negócio", "Instagram e identidade visual"],
   },
@@ -32,6 +36,7 @@ export const frentes: Frente[] = [
     index: "03",
     nav: "automações",
     title: "Automações",
+    resumo: "Tarefas repetitivas rodando sozinhas.",
     body: "Tarefas repetitivas rodando sozinhas, com as ferramentas da empresa conversando entre si.",
     items: ["Relatórios enviados no horário", "Integração entre sistemas e planilhas", "Rotinas no WhatsApp"],
   },
@@ -40,6 +45,7 @@ export const frentes: Frente[] = [
     index: "04",
     nav: "ia",
     title: "Implementação de IA",
+    resumo: "IA nos processos, com a equipe treinada.",
     body: "IA aplicada a processos reais do negócio, com a equipe treinada para usar no dia a dia.",
     items: ["Mapeamento de onde a IA ajuda", "Assistentes para atendimento e rotinas", "Treinamento da equipe"],
   },
