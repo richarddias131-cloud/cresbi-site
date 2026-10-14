@@ -31,7 +31,7 @@ export function Reveal({ children, delay = 0, className, as = "div", onMount = f
   if (onMount) {
     const Plain = as;
     return (
-      <Plain className={`${styles.enter} ${className ?? ""}`.trim()} style={{ animationDelay: `${delay}s` }}>
+      <Plain className={`${styles.enter} ${className ?? ""}`.trim()} style={{ animationDelay: `calc(var(--intro-delay, 0s) + ${delay}s)` }}>
         {children}
       </Plain>
     );

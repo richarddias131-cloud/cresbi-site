@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { heroStack } from "@/content/site";
 import { messages, whatsappLink } from "@/lib/whatsapp";
 import { Button, external } from "../ds/Button";
@@ -10,6 +10,7 @@ import { DURATION, EASE, REDUCED_FADE } from "../motion/constants";
 import { GridCanvas } from "../motion/GridCanvas";
 import { Reveal } from "../motion/Reveal";
 import { SplitText } from "../motion/SplitText";
+import { introDelay } from "../motion/intro";
 import { useReduced } from "../motion/useReduced";
 import { HeroConsole } from "./HeroConsole";
 import styles from "./Hero.module.css";
@@ -20,6 +21,8 @@ const T = { overline: 0.1, title: 0.2, text: 0.6, buttons: 0.75, console: 0.8, c
 export function Hero() {
   const coordRef = useRef<HTMLSpanElement>(null);
   const reduced = useReduced();
+  // Se a abertura estiver tocando, o console espera a cortina subir.
+  const [extra] = useState(introDelay);
 
   return (
     <section id="topo" className={styles.hero} aria-labelledby="hero-title">
@@ -68,9 +71,9 @@ export function Hero() {
           <motion.div
             initial={reduced ? { opacity: 0 } : { clipPath: "inset(0 0 100% 0)" }}
             animate={reduced ? { opacity: 1, clipPath: "inset(0 0 0% 0)" } : { clipPath: "inset(0 0 0% 0)" }}
-            transition={reduced ? { duration: REDUCED_FADE } : { duration: DURATION.enter, ease: EASE, delay: T.console }}
+            transition={reduced ? { duration: REDUCED_FADE } : { duration: DURATION.enter, ease: EASE, delay: T.console + extra }}
           >
-            <HeroConsole startAt={T.console + DURATION.enter} />
+            <HeroConsole startAt={T.console + DURATION.enter + extra} />
           </motion.div>
 
           <div className={styles.cards}>

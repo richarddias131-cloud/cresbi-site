@@ -1,4 +1,5 @@
 import { Header } from "@/components/sections/Header";
+import { Intro } from "@/components/sections/Intro";
 import { Hero } from "@/components/sections/Hero";
 import { Ticker } from "@/components/sections/Ticker";
 import { Services } from "@/components/sections/Services";
@@ -14,6 +15,7 @@ import { Footer } from "@/components/sections/Footer";
 export default function Home() {
   return (
     <>
+      <Intro />
       <Header />
       <main id="conteudo" tabIndex={-1}>
         <Hero />

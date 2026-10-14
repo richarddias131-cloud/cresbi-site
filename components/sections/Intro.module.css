@@ -1,0 +1,55 @@
+/*
+ * Abertura. Linha do tempo (s): barras 0,15–0,8 · letras 0,75–1,2 · frase 1,05–1,9 ·
+ * cortina sobe 2,2–2,9. --intro-delay (2,2s) atrasa a entrada do hero para depois da cortina.
+ */
+:global(html[data-intro="play"]) { --intro-delay: 2.2s; }
+
+.intro {
+  position: fixed; inset: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: center; padding: var(--space-4);
+  background-color: var(--ground);
+  background-image: linear-gradient(var(--surface) 1px, transparent 1px), linear-gradient(90deg, var(--surface) 1px, transparent 1px);
+  background-size: 40px 40px;
+  border-bottom: 1px solid var(--gold-deep);
+  cursor: pointer;
+  animation: introOut .7s cubic-bezier(0.76, 0, 0.24, 1) 2.2s forwards;
+}
+@keyframes introOut { to { transform: translateY(-100%); visibility: hidden; } }
+
+/* Já vista na sessão ou com redução de movimento: não aparece. */
+:global(html[data-intro="skip"]) .intro { display: none; }
+/* Pulada ou terminada: some rápido e deixa de receber cliques. */
+:global(html[data-intro="done"]) .intro { animation: none; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .3s ease, visibility 0s .3s; }
+@media (prefers-reduced-motion: reduce) { .intro { display: none; } }
+
+.inner { display: flex; flex-direction: column; align-items: center; gap: var(--space-6); text-align: center; }
+
+/* Wordmark: CR + barras (o "E") + SBI, em Geist 480 com espaçamento largo. */
+.wordmark { display: inline-flex; align-items: center; font: 480 clamp(30px, 7vw, 56px)/1 var(--font-sans); letter-spacing: 0.32em; color: var(--text); }
+.left, .right { display: inline-block; animation: letters .45s cubic-bezier(0.22, 1, 0.36, 1) .75s both; }
+.left { --from: 0.4em; }
+.right { --from: -0.4em; margin-right: -0.32em; }
+@keyframes letters { from { opacity: 0; transform: translateX(var(--from)); } }
+
+.bars { width: 0.56em; height: 0.7em; margin: 0 0.32em 0 0.04em; overflow: visible; }
+.bar1, .bar2, .bar3 { transform-box: fill-box; transform-origin: 0 50%; animation: bar .35s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.bar1 { fill: var(--text); animation-delay: .15s; }
+.bar2 { fill: var(--gold); animation-delay: .3s; }
+.bar3 { fill: var(--text); animation-delay: .45s; }
+@keyframes bar { from { transform: scaleX(0); } }
+
+/* Frase: revelada palavra por palavra, com máscara de baixo para cima. */
+.phrase { margin: 0; max-width: 18ch; font: 600 clamp(26px, 5vw, 44px)/1.12 var(--font-sans); letter-spacing: -0.035em; text-wrap: balance; color: var(--text); }
+.mask { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.12em; margin-bottom: -0.12em; }
+.word { display: inline-block; animation: word .7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.gold { color: var(--gold); }
+@keyframes word { from { transform: translateY(105%); } }
+
+.code { font: 500 11px/16px var(--font-mono); letter-spacing: .08em; color: var(--text-subtle); animation: fade .4s ease 1.5s both; }
+@keyframes fade { from { opacity: 0; } }
+
+.cross { position: absolute; font: 400 16px/1 var(--font-mono); color: var(--line-strong); }
+.tl { top: var(--space-4); left: var(--space-4); }
+.tr { top: var(--space-4); right: var(--space-4); }
+.bl { bottom: var(--space-4); left: var(--space-4); }
+.br { bottom: var(--space-4); right: var(--space-4); }
