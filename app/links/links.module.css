@@ -1,35 +1,112 @@
-/* Página de links: uma coluna estreita, pensada para o navegador do Instagram. */
-.page { min-height: 100vh; display: flex; justify-content: center; padding: var(--space-12) var(--space-4) var(--space-8); }
-.column { width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: var(--space-8); }
+/* Página de links da bio: coluna estreita, pensada para o navegador do Instagram. */
+.page { min-height: 100vh; background: var(--ground); padding-bottom: var(--space-8); overflow-x: clip; }
 
-.profile { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-2); }
+/* A barra de progresso de rolagem do site não faz sentido aqui. */
+:global(body):has(.page) :global([data-scroll-progress]) { display: none; }
+
+/* Topo ------------------------------------------------------------------- */
+.top { position: relative; isolation: isolate; overflow: hidden; border-bottom: 1px solid var(--line); }
+.topInner {
+  position: relative; z-index: 1; max-width: 480px; margin-inline: auto;
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-3);
+  padding: var(--space-16) var(--space-4) var(--space-12);
+}
+.marks { position: absolute; inset: var(--space-4); pointer-events: none; z-index: 0; }
+.cross { position: absolute; font: 400 16px/1 var(--font-mono); color: var(--line-strong); }
+.tl { top: 0; left: 0; } .tr { top: 0; right: 0; } .bl { bottom: 0; left: 0; } .br { bottom: 0; right: 0; }
+.coord { position: absolute; right: var(--space-6); bottom: 0; font: 500 10px/16px var(--font-mono); letter-spacing: .08em; color: var(--line-strong); font-variant-numeric: tabular-nums; }
+
+.avatarWrap { margin-bottom: var(--space-3); }
 .avatar {
-  width: 96px; height: 96px; margin-bottom: var(--space-2); border-radius: 50%;
+  position: relative; width: 112px; height: 112px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   background: var(--ground); border: 1px solid var(--line-strong);
 }
-.symbol { width: 40px; height: 34px; }
-.name { margin: 0; font: 480 22px/28px var(--font-sans); letter-spacing: 0.32em; padding-left: 0.32em; }
+/* Anel externo em --gold-deep, como um detalhe de precisão. */
+.avatar::after { content: ""; position: absolute; inset: -7px; border-radius: 50%; border: 1px solid var(--gold-deep); }
+.avatarMark { width: 44px; height: 38px; }
+
+.wordmark { display: inline-flex; align-items: center; font: 480 26px/1 var(--font-sans); letter-spacing: 0.32em; color: var(--text); }
+.wordmarkE { width: 0.56em; height: 0.7em; margin: 0 0.32em 0 0.04em; flex: none; }
+/* O último caractere não leva o espaçamento extra. */
+.wordmark > span:last-child { margin-right: -0.32em; }
 .handle { font: 400 13px/20px var(--font-mono); color: var(--text-subtle); }
-.tagline { max-width: 320px; margin: var(--space-2) 0 var(--space-2); color: var(--text-muted); font-size: 15px; line-height: 24px; }
 
-.cta { width: 100%; height: 52px; font-size: 15px; }
+/* Título no estilo display, reduzido para a coluna do celular. */
+.title { margin: var(--space-4) 0 var(--space-2); max-width: 15ch; font: 600 34px/38px var(--font-sans); letter-spacing: -0.04em; text-wrap: balance; }
+.pills { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-2); }
+.pill { display: inline-flex; align-items: center; height: 28px; padding: 0 12px; border: 1px solid var(--line); border-radius: 14px; font: 500 11px/16px var(--font-mono); color: var(--text-muted); }
 
-.group { display: flex; flex-direction: column; gap: var(--space-3); }
-.list { list-style: none; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); }
-.list li + li { border-top: 1px solid var(--line); }
-.row {
-  display: flex; align-items: center; gap: var(--space-4); min-height: 56px; padding: var(--space-3) var(--space-4);
-  color: var(--text); text-decoration: none; transition: background-color .15s ease;
+/* Corpo ------------------------------------------------------------------ */
+.column { max-width: 480px; margin-inline: auto; padding: var(--space-8) var(--space-4) 0; display: flex; flex-direction: column; gap: var(--space-8); }
+
+.ctaWrap { display: flex; flex-direction: column; align-items: stretch; gap: var(--space-2); }
+.ctaWrap > span:first-child { display: flex; }
+.cta { width: 100%; height: 56px; font-size: 16px; gap: var(--space-3); }
+.ctaIcon { color: var(--on-gold); }
+.note { font: 400 12px/16px var(--font-mono); color: var(--text-subtle); text-align: center; }
+
+.group { display: flex; flex-direction: column; gap: var(--space-4); }
+.groupHead { display: flex; align-items: baseline; justify-content: space-between; }
+.hint { font: 400 12px/16px var(--font-mono); color: var(--text-subtle); }
+
+/* Frentes: 2 × 2, mesmo tratamento do ServiceCard (superfície, borda, índice em ouro). */
+.frentes { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
+.frente {
+  height: 100%; display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4);
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md);
+  color: var(--text); text-decoration: none; transition: border-color .15s ease;
 }
-.row:hover { background: var(--surface-raised); }
-.row:hover .arrow, .row:focus-visible .arrow { transform: translateX(4px); color: var(--gold); }
-.row:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; border-radius: var(--radius-md); }
-.index { font: 400 13px/20px var(--font-mono); color: var(--gold); width: 2ch; flex: none; }
-.label { flex: 1; display: flex; flex-direction: column; font-size: 15px; line-height: 22px; min-width: 0; }
-.meta { font: 400 12px/16px var(--font-mono); color: var(--text-subtle); }
-.arrow { color: var(--text-subtle); }
+.frente:hover, .frente:active, .frente:focus-visible { border-color: var(--gold); }
+.frente:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.frenteTop { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-2); }
+.index { font: 400 13px/20px var(--font-mono); letter-spacing: .04em; color: var(--gold); }
+.frenteTitle { font: 600 16px/22px var(--font-sans); letter-spacing: -0.01em; }
+.frenteBody { font-size: 13px; line-height: 20px; color: var(--text-muted); }
 
+/* Projetos: carrossel com encaixe, sangrando até a borda da tela. */
+.carousel {
+  list-style: none; display: grid; grid-auto-flow: column; grid-auto-columns: 84%; gap: var(--space-3);
+  margin-inline: calc(-1 * var(--space-4)); padding: 0 var(--space-4) var(--space-2);
+  overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--space-4); scrollbar-width: none;
+}
+.carousel::-webkit-scrollbar { display: none; }
+.slide { scroll-snap-align: start; min-width: 0; }
+.projeto { display: flex; flex-direction: column; gap: var(--space-3); color: var(--text); text-decoration: none; }
+.projeto:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; border-radius: var(--radius-md); }
+.shot {
+  position: relative; display: block; aspect-ratio: 16 / 11; overflow: hidden;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); transition: border-color .15s ease;
+}
+.projeto:hover .shot, .projeto:active .shot { border-color: var(--gold); }
+.shotBar { position: absolute; inset: 0 0 auto; z-index: 1; height: 28px; display: flex; align-items: center; gap: var(--space-2); padding: 0 var(--space-3); background: var(--surface); border-bottom: 1px solid var(--line); font: 500 10px/16px var(--font-mono); color: var(--text-muted); }
+.dots { color: var(--line-strong); letter-spacing: 2px; flex: none; }
+.url { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.shot > img { position: absolute; top: 28px; left: 0; width: 100%; height: calc(100% - 28px); object-fit: cover; object-position: top; }
+.phone {
+  position: absolute; right: var(--space-3); bottom: -18%; z-index: 2; width: 27%; aspect-ratio: 360 / 780;
+  padding: 3px; background: var(--ground); border: 1px solid var(--line-strong); border-radius: 12px; overflow: hidden;
+}
+.phone img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 9px; }
+.projetoMeta { display: flex; flex-direction: column; gap: 2px; }
+.projetoFrente { font: 500 11px/16px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--text-subtle); }
+.projetoNome { font: 600 17px/24px var(--font-sans); }
+.projetoLocal { font: 400 12px/16px var(--font-mono); color: var(--text-subtle); }
+.projeto:hover :global(.arrow) { transform: translateX(4px); color: var(--gold); }
+
+/* Faixa com as frentes, como no site. */
+.ticker { margin-top: var(--space-12); overflow: hidden; border-block: 1px solid var(--line); padding-block: var(--space-3); }
+.tickerTrack { display: flex; width: max-content; animation: tickerMove 40s linear infinite; }
+.tickerGroup { display: flex; flex: none; }
+.tickerItem { display: inline-flex; align-items: center; font: 500 12px/20px var(--font-mono); color: var(--text-muted); white-space: nowrap; }
+.sep { color: var(--gold); margin-inline: var(--space-4); font-size: 9px; }
+@keyframes tickerMove { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .tickerTrack { animation: none; } }
+
+.siteWrap { display: flex; justify-content: center; }
 .site { width: 100%; }
 
-.footer { display: flex; justify-content: center; font: 400 12px/16px var(--font-mono); color: var(--text-subtle); }
+.footer { display: flex; flex-direction: column; align-items: center; gap: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--line); }
+.footerMark { font-size: 15px; }
+.footerLine { width: 100%; display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-2); font: 400 11px/16px var(--font-mono); color: var(--text-subtle); }
+.dot { color: var(--gold); margin-left: 4px; }
