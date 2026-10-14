@@ -45,7 +45,7 @@ export function SplitText({ text, highlight, as = "h2", className, id, delay = 0
               <span className={styles.mask}>
                 <span
                   className={`${styles.word} ${enter.word} ${isGold ? styles.gold : ""}`}
-                  style={{ animationDelay: `${delay + i * STAGGER.words}s` }}
+                  style={{ animationDelay: `calc(var(--intro-delay, 0s) + ${delay + i * STAGGER.words}s)` }}
                 >
                   {w}
                 </span>

@@ -120,6 +120,21 @@ fluxo, o pulso do símbolo e o cursor piscando ficam desligados, e o conteúdo
 aparece já no estado final, com fades de até 200ms. Loops (faixa, fluxo,
 canvas, pulso) pausam fora da tela e com a aba oculta.
 
+### Abertura
+
+`components/sections/Intro.tsx` é a animação de entrada da página inicial: as três
+barras do símbolo montam o "E" de CR≡SBI, a frase "Tecnologia que trabalha pelo seu
+negócio." entra palavra por palavra e a tela sobe como uma cortina (cerca de 2,9 s).
+
+- Toca só na primeira visita da sessão (`sessionStorage`), não aparece com
+  `prefers-reduced-motion` e pode ser pulada com clique, toque ou tecla.
+- É toda em CSS; o script inline só decide se toca. Enquanto ela toca,
+  `<html data-intro="play">` define `--intro-delay` (2,2 s), que atrasa a entrada
+  do hero para depois da cortina (`components/motion/intro.ts` faz o mesmo para o
+  console, que é animado em JS).
+- Para trocar a frase, edite `FRASE` e `DESTAQUE` no início do arquivo.
+- Não entra na página `/links`.
+
 A entrada do hero usa animação CSS (`components/motion/enter.module.css`) em
 vez de JS, para o título aparecer na primeira pintura sem esperar a
 hidratação (LCP).
