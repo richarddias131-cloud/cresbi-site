@@ -51,4 +51,9 @@ if (location.pathname.indexOf("/cresbi-site/") === 0) document.getElementById("h
 writeFileSync("out/404.html", html);
 rmSync("out/404", { recursive: true, force: true });
 rmSync("out/_not-found", { recursive: true, force: true });
+rmSync("out/_not-found.html", { force: true });
+
+// out/links/ só guarda dados de navegação interna do Next (a página usa links comuns).
+// Sem a pasta, o GitHub Pages serve out/links.html direto em /links.
+rmSync("out/links", { recursive: true, force: true });
 console.log("out/404.html estática gerada");
