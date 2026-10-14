@@ -124,6 +124,20 @@ A entrada do hero usa animação CSS (`components/motion/enter.module.css`) em
 vez de JS, para o título aparecer na primeira pintura sem esperar a
 hidratação (LCP).
 
+## Página de links da bio (`/links`)
+
+`app/links/page.tsx` é a página para a bio do Instagram (@cresbi.oficial): botão
+do WhatsApp com a mensagem "Vim pelo Instagram", as quatro frentes (levam aos
+cards do site), os projetos e o link para o site completo. Ela lê as frentes e
+os projetos de `content/site.ts`, então acompanha qualquer mudança neles.
+
+O símbolo do topo é o do perfil do Instagram (três barras, a do meio em ouro),
+desenhado em SVG no próprio arquivo.
+
+O endereço é `/links`, sem barra no final (`trailingSlash: false` em
+`next.config.ts`): o build gera `out/links.html`, e o GitHub Pages serve esse
+arquivo em `/links`.
+
 ## Cresbi Analyzer e redirecionamentos
 
 O Cresbi Analyzer é um sistema da frente 01 (Sistemas sob medida): um
