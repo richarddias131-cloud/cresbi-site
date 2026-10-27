@@ -13,7 +13,7 @@ export function Cases() {
       <div className="container">
         <div className="section-head">
           <Reveal>
-            <span className="cr-overline">{"// 06 projetos"}</span>
+            <span className="cr-overline">06 · Projetos</span>
           </Reveal>
           <SplitText id="projetos-title" className="display-l title-l" text="Trabalho recente." />
         </div>

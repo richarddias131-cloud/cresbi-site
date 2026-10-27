@@ -2,4 +2,4 @@
 /* A máscara ganha um respiro embaixo para não cortar descendentes (g, p, ç). */
 .mask { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.12em; margin-bottom: -0.12em; }
 .word { display: inline-block; will-change: transform; }
-.gold { color: var(--gold); }
+.gold { color: var(--gold); font-weight: 400; }

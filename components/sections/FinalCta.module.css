@@ -6,14 +6,6 @@
 .copy { display: flex; flex-direction: column; gap: var(--space-6); }
 .lead { color: var(--text-muted); max-width: 520px; }
 
-/* Losango aberto do símbolo, em --gold-deep, com a pedra em --gold. Nunca gira. */
-.facet { width: 280px; height: 280px; margin-top: var(--space-4); margin-left: -24px; pointer-events: none; }
-.facet path { fill: none; stroke: var(--gold-deep); stroke-width: 2; stroke-linejoin: miter; }
-.stone { fill: var(--gold); transform-box: fill-box; transform-origin: center; }
-.pulse { animation: pulse 3s ease-in-out infinite; }
-@keyframes pulse { 50% { transform: scale(1.04); } }
-@media (max-width: 1023px) { .facet { display: none; } }
-@media (prefers-reduced-motion: reduce) { .pulse { animation: none; } }
 
 .cardWrap { min-width: 0; }
 .card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); }

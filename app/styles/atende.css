@@ -1,0 +1,76 @@
+/*
+ * Acabamento "CRESBI Atende" (referência: cresbi-atende/docs/mockups/painel-editorial.html
+ * e public/admin/admin.css). Mesmas cores do design system; muda o acabamento:
+ * - títulos em Geist 300, destaque em ouro com peso 400;
+ * - sem fonte de código: rótulos, números e detalhes em Geist com números tabulares;
+ * - divisões por linhas finas em vez de cards;
+ * - botões retangulares com raio de 6px;
+ * - status com ponto de 6px em verde-azulado ("ativo").
+ * Carregado depois de tokens + bundle.css, então sobrepõe só o necessário.
+ */
+
+:root {
+  /* Linhas mais discretas, como no painel. */
+  --line: #1F1F23;
+  --line2: #2A2A2F;
+  --soft: #111113;
+  /* Sem fonte de código: tudo em Geist. */
+  --font-mono: var(--font-sans);
+  --radius-ctl: 6px;
+  --radius-box: 10px;
+}
+
+body { font-variant-numeric: tabular-nums; }
+
+/* Títulos ---------------------------------------------------------------- */
+.display-xl, .display-l, .heading-1 { font-weight: 300; letter-spacing: -0.03em; }
+.heading-2 { font-weight: 300; letter-spacing: -0.02em; }
+
+/* Rótulo acima do título (era overline em caixa alta e mono). */
+.cr-overline { font: 400 13px/18px var(--font-sans); letter-spacing: 0; text-transform: none; color: var(--text-subtle); }
+.cr-overline--gold { color: var(--gold); }
+
+/* Botões ----------------------------------------------------------------- */
+.cr-btn { height: 40px; padding: 0 18px; border-radius: var(--radius-ctl); font-weight: 500; font-size: 14px; letter-spacing: 0; }
+.cr-btn--sm { height: 34px; padding: 0 14px; font-size: 13px; }
+.cr-btn--secondary, .cr-btn--code { border-color: var(--line2); }
+.cr-btn--code { font: 500 14px/20px var(--font-sans); }
+.cr-btn--code::before { content: none; }
+.cr-btn--ghost { padding: 0 var(--space-2); }
+.cr-service__link { padding-left: 0; }
+/* No celular, alvo de toque de 44px. */
+@media (pointer: coarse), (max-width: 767px) { .cr-btn, .cr-btn--sm { height: 44px; } }
+
+/* Status: texto com ponto (ativo = verde-azulado), sem moldura. */
+.cr-header__status { height: auto; padding: 0; border: 0; border-radius: 0; font: 400 13px/18px var(--font-sans); color: var(--text-muted); }
+.cr-header__status::before { width: 6px; height: 6px; background: var(--positive); }
+
+/* Tags: rótulo retangular discreto, sem caixa alta. */
+.cr-tag { height: 24px; padding: 0 10px; border-radius: var(--radius-ctl); font: 400 12px/16px var(--font-sans); letter-spacing: 0; text-transform: none; }
+.cr-tag--neutral { background: transparent; border: 1px solid var(--line2); color: var(--text-muted); }
+
+/* Cabeçalho: navegação em Geist, índice em ouro. */
+.cr-header__nav a { font: 400 14px/20px var(--font-sans); }
+
+/* Cards de frente: viram colunas separadas por linhas (faixa, como os indicadores do painel). */
+.cr-service { background: transparent; border: 0; border-radius: 0; padding: var(--space-6) var(--space-6) var(--space-6) 0; }
+.cr-service:hover { border-color: transparent; }
+.cr-service__index { font: 400 14px/20px var(--font-sans); letter-spacing: 0; }
+.cr-service__title { font-weight: 400; font-size: 22px; line-height: 28px; letter-spacing: -0.02em; }
+.cr-service__list li::before { width: 5px; height: 5px; border-radius: 9px; }
+
+/* Console vira lista de status: ponto em vez de [ok], texto em Geist. */
+.cr-console { border-radius: var(--radius-box); font: 400 14px/20px var(--font-sans); }
+.cr-console__bar { font: 400 12px/16px var(--font-sans); color: var(--text-subtle); }
+.cr-console__bar span:last-child { display: none; }
+.cr-console__body { gap: 0; padding: var(--space-2) var(--space-4); }
+.cr-console__line { align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.cr-console__line:last-child { border-bottom: 0; }
+.cr-console__line::before { content: ""; width: 6px; height: 6px; border-radius: 9px; background: var(--positive); flex: none; }
+.cr-console__line.is-wait::before { content: ""; background: var(--gold); }
+.cr-console__status { font-size: 13px; }
+.cr-console__line.is-wait .cr-console__status { color: var(--gold); }
+.cr-console__cursor { width: 2px; height: 14px; margin-left: 4px; }
+
+/* Campos (caso usados) seguem o raio dos controles. */
+.cr-field__input { border-radius: var(--radius-ctl); border-color: var(--line2); }

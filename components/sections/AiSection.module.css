@@ -1,16 +1,27 @@
-.grid { list-style: none; display: grid; gap: var(--space-4); }
-@media (min-width: 768px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (min-width: 1280px) { .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-
-.item { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-6); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); min-width: 0; }
+/* Faixa com linhas finas, sem cards (estilo do painel do CRESBI Atende). */
+.grid { list-style: none; display: grid; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.item { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-6) var(--space-6) var(--space-6) 0; min-width: 0; }
+.item + .item { border-top: 1px solid var(--line); }
+@media (min-width: 768px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .item + .item { border-top: 0; }
+  .item:nth-child(n + 3) { border-top: 1px solid var(--line); }
+  .item:nth-child(even) { border-left: 1px solid var(--line); padding-left: var(--space-6); }
+}
+@media (min-width: 1280px) {
+  .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .item:nth-child(n + 3) { border-top: 0; }
+  .item + .item { border-left: 1px solid var(--line); padding-left: var(--space-6); }
+}
 .itemHead { display: flex; align-items: center; gap: var(--space-3); }
-.label { font: 400 13px/20px var(--font-mono); color: var(--text-subtle); }
+.item :global(.heading-3) { font-weight: 400; font-size: 18px; }
+.label { font: 400 13px/20px var(--font-sans); color: var(--text-subtle); }
 .body { color: var(--text-muted); font-size: 14px; line-height: 22px; }
 
 /* Faixa de treinamento: separada por linhas, sem card. */
 .training {
   display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--space-6);
-  margin-top: var(--space-8); padding-block: var(--space-6); border-block: 1px solid var(--line);
+  padding-block: var(--space-6); border-bottom: 1px solid var(--line);
 }
 .trainingText { display: flex; flex-direction: column; gap: var(--space-2); flex: 1 1 360px; min-width: 0; }
 .trainingText p { color: var(--text-muted); max-width: 620px; }

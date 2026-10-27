@@ -1,5 +1,17 @@
-.grid { display: grid; gap: var(--space-6); }
+/* Faixa com linhas finas, sem cards (estilo do painel do CRESBI Atende). */
+.grid { display: grid; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .cell { min-width: 0; }
-/* 2 × 2 em telas médias, 4 em linha no desktop */
-@media (min-width: 768px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (min-width: 1280px) { .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.cell + .cell { border-top: 1px solid var(--line); }
+@media (min-width: 768px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cell + .cell { border-top: 0; }
+  .cell:nth-child(n + 3) { border-top: 1px solid var(--line); }
+  .cell:nth-child(even) { border-left: 1px solid var(--line); }
+  .cell:nth-child(even) :global(.cr-service) { padding-left: var(--space-6); }
+}
+@media (min-width: 1280px) {
+  .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .cell:nth-child(n + 3) { border-top: 0; }
+  .cell + .cell { border-left: 1px solid var(--line); }
+  .cell + .cell :global(.cr-service) { padding-left: var(--space-6); }
+}

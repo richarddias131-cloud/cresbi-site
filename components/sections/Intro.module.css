@@ -39,10 +39,10 @@
 @keyframes bar { from { transform: scaleX(0); } }
 
 /* Frase: revelada palavra por palavra, com máscara de baixo para cima. */
-.phrase { margin: 0; max-width: 18ch; font: 600 clamp(26px, 5vw, 44px)/1.12 var(--font-sans); letter-spacing: -0.035em; text-wrap: balance; color: var(--text); }
+.phrase { margin: 0; max-width: 18ch; font: 300 clamp(26px, 5vw, 44px)/1.12 var(--font-sans); letter-spacing: -0.03em; text-wrap: balance; color: var(--text); }
 .mask { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.12em; margin-bottom: -0.12em; }
 .word { display: inline-block; animation: word .7s cubic-bezier(0.22, 1, 0.36, 1) both; }
-.gold { color: var(--gold); }
+.gold { color: var(--gold); font-weight: 400; }
 @keyframes word { from { transform: translateY(105%); } }
 
 .code { font: 500 11px/16px var(--font-mono); letter-spacing: .08em; color: var(--text-subtle); animation: fade .4s ease 1.5s both; }

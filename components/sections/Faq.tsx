@@ -19,7 +19,7 @@ export function Faq() {
       <div className={`container ${styles.layout}`}>
         <div className="section-head">
           <Reveal>
-            <span className="cr-overline">{"// 07 faq"}</span>
+            <span className="cr-overline">07 · Perguntas frequentes</span>
           </Reveal>
           <SplitText id="faq-title" className="display-l title-l" text="Perguntas frequentes." />
         </div>

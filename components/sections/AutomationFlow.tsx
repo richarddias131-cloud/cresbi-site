@@ -88,7 +88,7 @@ export function AutomationFlow() {
         <div className={styles.top}>
           <div className="section-head">
             <Reveal>
-              <span className="cr-overline">{"// 02 automações"}</span>
+              <span className="cr-overline">02 · Automações</span>
             </Reveal>
             <SplitText id="automacoes-title" className="display-l title-l" text="Seu negócio trabalhando enquanto você dorme." />
             <Reveal delay={0.1}>
@@ -98,7 +98,7 @@ export function AutomationFlow() {
             </Reveal>
           </div>
           <Reveal delay={0.15} className={styles.log}>
-            <Console title="cresbi / rotina.log" className={styles.console}>
+            <Console title="Rotina de hoje" className={styles.console}>
               {Array.from({ length: LOG_SIZE }).map((_, i) => {
                 const l = shownLogs[shownLogs.length - LOG_SIZE + i];
                 return l ? (

@@ -11,7 +11,7 @@ export function Services() {
       <div className="container">
         <div className="section-head">
           <Reveal>
-            <span className="cr-overline">{"// 01 serviços"}</span>
+            <span className="cr-overline">01 · Serviços</span>
           </Reveal>
           <SplitText
             id="servicos-title"

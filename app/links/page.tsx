@@ -25,10 +25,10 @@ const mensagemInstagram = "Olá, CRESBI. Vim pelo Instagram e quero conversar so
 const ICONES = [Cpu, Globe, Workflow, Bot];
 
 const consoleBio = [
-  { name: "instagram", status: "conectado" },
-  { name: "whatsapp", status: "online" },
-  { name: "agenda", status: "aberta" },
-  { name: "seu_projeto", status: "aguardando", wait: true },
+  { name: "Instagram", status: "conectado" },
+  { name: "WhatsApp", status: "online" },
+  { name: "Agenda", status: "aberta" },
+  { name: "Seu projeto", status: "aguardando", wait: true },
 ];
 
 /** Símbolo do perfil do Instagram: três barras, a do meio em ouro e mais curta. */
@@ -95,7 +95,7 @@ export default function Links() {
       <div className={styles.column}>
         {/* Console: a assinatura da marca, digitado na entrada. */}
         <Reveal onMount delay={0.8}>
-          <HeroConsole startAt={1.1} lines={consoleBio} title="cresbi / bio.log" />
+          <HeroConsole startAt={1.1} lines={consoleBio} title="Status" />
         </Reveal>
 
         <Reveal onMount delay={0.9} className={styles.ctaWrap}>
@@ -106,13 +106,13 @@ export default function Links() {
               <span aria-hidden="true">→</span>
             </a>
           </Magnetic>
-          <span className={styles.note}>{"// a conversa abre com a mensagem pronta"}</span>
+          <span className={styles.note}>A conversa abre com a mensagem pronta.</span>
         </Reveal>
 
         <section aria-labelledby="links-frentes" className={styles.group}>
           <Reveal className={styles.groupHead}>
             <h2 id="links-frentes" className="cr-overline">
-              {"// 01–04 frentes"}
+              Frentes
             </h2>
           </Reveal>
           <ul className={styles.frentes}>
@@ -137,7 +137,7 @@ export default function Links() {
         <section aria-labelledby="links-projetos" className={styles.group}>
           <Reveal className={styles.groupHead}>
             <h2 id="links-projetos" className="cr-overline">
-              {"// projetos"}
+              Projetos
             </h2>
             <span className={styles.hint} aria-hidden="true">
               arraste →
@@ -180,7 +180,7 @@ export default function Links() {
               {ticker.map((t) => (
                 <span key={`${copy}-${t}`} className={styles.tickerItem}>
                   {t}
-                  <span className={styles.sep}>◆</span>
+                  <span className={styles.sep} />
                 </span>
               ))}
             </span>
@@ -190,8 +190,8 @@ export default function Links() {
 
       <div className={styles.column}>
         <Reveal className={styles.siteWrap}>
-          <a className={`cr-btn cr-btn--code ${styles.site}`} href="./">
-            ver_site_completo
+          <a className={`cr-btn cr-btn--secondary ${styles.site}`} href="./">
+            Ver o site completo
           </a>
         </Reveal>
 

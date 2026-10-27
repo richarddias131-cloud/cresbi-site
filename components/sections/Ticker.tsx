@@ -42,7 +42,7 @@ export function Ticker() {
     ticker.map((t) => (
       <span key={`${copy}-${t}`} className={styles.item}>
         {t}
-        <span className={styles.sep}>◆</span>
+        <span className={styles.sep} />
       </span>
     ));
 

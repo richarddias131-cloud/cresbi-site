@@ -87,7 +87,7 @@ export function Header() {
     <header className={`${styles.wrap} ${scrolled ? styles.scrolled : ""}`}>
       <div className={`cr-header ${styles.header}`}>
         <a href="#topo" className={styles.logoLink} aria-label="CRESBI, voltar ao início">
-          <Logo className="cr-header__logo" />
+          <Logo height={19} />
         </a>
         <nav className={`cr-header__nav ${styles.nav}`} aria-label="Frentes">
           {frentes.map((f) => (

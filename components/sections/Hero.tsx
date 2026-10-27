@@ -40,7 +40,7 @@ export function Hero() {
       <div className={`container ${styles.inner}`}>
         <div className={styles.copy}>
           <Reveal onMount delay={T.overline}>
-            <span className="cr-overline">{"// estúdio de tecnologia para PMEs"}</span>
+            <span className="cr-overline">Estúdio de tecnologia para PMEs</span>
           </Reveal>
           <SplitText
             as="h1"
@@ -61,8 +61,8 @@ export function Hero() {
             <Button href={whatsappLink(messages.iniciar)} {...external}>
               Iniciar projeto <span aria-hidden="true">→</span>
             </Button>
-            <Button variant="code" href="#projetos">
-              ver_projetos
+            <Button variant="secondary" href="#projetos">
+              Ver projetos
             </Button>
           </Reveal>
         </div>

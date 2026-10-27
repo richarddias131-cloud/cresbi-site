@@ -10,7 +10,7 @@ export function Footer() {
       <div className={`container ${styles.top}`}>
         <div className={styles.brand}>
           <Logo />
-          <p className={styles.tagline}>{"// tecnologia sob medida para quem quer crescer"}</p>
+          <p className={styles.tagline}>Tecnologia sob medida para quem quer crescer.</p>
         </div>
         <nav className={styles.cols} aria-label="Rodapé">
           <div>

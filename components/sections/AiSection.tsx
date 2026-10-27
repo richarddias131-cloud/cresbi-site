@@ -16,7 +16,7 @@ export function AiSection() {
       <div className="container">
         <div className="section-head">
           <Reveal>
-            <span className="cr-overline">{"// 03 inteligência artificial"}</span>
+            <span className="cr-overline">03 · Inteligência artificial</span>
           </Reveal>
           <SplitText id="ia-title" className="display-l title-l" text="IA no dia a dia da empresa, com a equipe junto." />
           <Reveal delay={0.1}>

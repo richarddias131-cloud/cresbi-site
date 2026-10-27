@@ -19,7 +19,7 @@ type Line = { name: string; status: string; wait?: boolean };
 export function HeroConsole({
   startAt,
   lines = heroConsole,
-  title = "cresbi / entregas.log",
+  title = "Entregas",
 }: {
   startAt: number;
   lines?: Line[];

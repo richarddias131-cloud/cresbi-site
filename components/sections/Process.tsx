@@ -32,7 +32,7 @@ export function Process() {
       <div className={`container ${styles.layout}`}>
         <div className={`section-head ${styles.head}`}>
           <Reveal>
-            <span className="cr-overline">{"// 04 método"}</span>
+            <span className="cr-overline">04 · Método</span>
           </Reveal>
           <SplitText id="metodo-title" className="display-l title-l" text="Do diagnóstico ao acompanhamento." />
         </div>

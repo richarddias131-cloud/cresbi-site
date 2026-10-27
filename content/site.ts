@@ -52,53 +52,53 @@ export const frentes: Frente[] = [
 ];
 
 export const heroConsole = [
-  { name: "sistema_pedidos", status: "online" },
-  { name: "site_institucional", status: "publicado" },
-  { name: "perfil_google", status: "otimizado" },
-  { name: "rotina_relatorios", status: "automatizada" },
-  { name: "assistente_ia", status: "em_treinamento", wait: true },
+  { name: "Sistema de pedidos", status: "no ar" },
+  { name: "Site institucional", status: "publicado" },
+  { name: "Perfil no Google", status: "otimizado" },
+  { name: "Rotina de relatórios", status: "automatizada" },
+  { name: "Assistente de IA", status: "em treinamento", wait: true },
 ];
 
-export const heroStack = ["python", "sql", "supabase", "whatsapp", "google", "ia"];
+export const heroStack = ["Python", "SQL", "Supabase", "WhatsApp", "Google", "IA"];
 
 export const ticker = [
-  "sistemas_sob_medida",
-  "presença_digital",
-  "sites",
-  "google_meu_negócio",
-  "instagram",
-  "automações",
-  "integrações",
-  "implementação_de_ia",
-  "treinamento_de_equipe",
+  "Sistemas sob medida",
+  "Presença digital",
+  "Sites",
+  "Google Meu Negócio",
+  "Instagram",
+  "Automações",
+  "Integrações",
+  "Implementação de IA",
+  "Treinamento de equipe",
 ];
 
 export const fluxo = [
-  { system: "whatsapp", event: "pedido_recebido", log: "pedido recebido" },
-  { system: "sistema", event: "baixa_no_estoque", log: "estoque atualizado" },
-  { system: "planilha", event: "venda_registrada", log: "venda registrada" },
-  { system: "relatório", event: "enviado_às_08h", log: "relatório enviado" },
+  { system: "WhatsApp", event: "Pedido recebido", log: "Pedido recebido" },
+  { system: "Sistema", event: "Baixa no estoque", log: "Estoque atualizado" },
+  { system: "Planilha", event: "Venda registrada", log: "Venda registrada" },
+  { system: "Relatório", event: "Enviado às 8h", log: "Relatório enviado" },
 ];
 
 // Frente 04: exemplos de uso de IA em processos do dia a dia.
 export const usosIa = [
   {
-    label: "atendimento",
+    label: "Atendimento",
     title: "Atendimento no WhatsApp",
     body: "Respostas a perguntas frequentes dos clientes, com a equipe assumindo a conversa quando for preciso.",
   },
   {
-    label: "documentos",
+    label: "Documentos",
     title: "Pedidos, notas e e-mails",
     body: "Leitura de documentos que chegam todo dia para preencher planilhas e sistemas sem digitação manual.",
   },
   {
-    label: "conteúdo",
+    label: "Conteúdo",
     title: "Textos para revisar",
     body: "Rascunhos de posts, descrições de produtos e respostas a avaliações, sempre revisados pela equipe.",
   },
   {
-    label: "rotinas_internas",
+    label: "Rotinas internas",
     title: "Consultas e resumos",
     body: "Resumos de reuniões e relatórios, e respostas a partir das informações da própria empresa.",
   },
@@ -106,27 +106,27 @@ export const usosIa = [
 
 export const processo = [
   {
-    step: "step_01",
+    step: "Etapa 01",
     title: "Diagnóstico",
     body: "Entendemos seu processo, seus números e onde a tecnologia gera retorno.",
   },
   {
-    step: "step_02",
+    step: "Etapa 02",
     title: "Desenho",
     body: "Você aprova a solução e o escopo antes de qualquer linha de código.",
   },
   {
-    step: "step_03",
+    step: "Etapa 03",
     title: "Construção por etapas",
     body: "Entregamos em partes, para você acompanhar e validar cada uma.",
   },
   {
-    step: "step_04",
+    step: "Etapa 04",
     title: "Entrega com treinamento",
     body: "A solução vai para o ar documentada, e a equipe aprende a usar.",
   },
   {
-    step: "step_05",
+    step: "Etapa 05",
     title: "Acompanhamento",
     body: "Seguimos junto depois da entrega, ajustando e melhorando com o uso.",
   },

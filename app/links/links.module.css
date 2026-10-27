@@ -33,7 +33,7 @@
 .handle { font: 400 13px/20px var(--font-mono); color: var(--text-subtle); }
 
 /* Título no estilo display, reduzido para a coluna do celular. */
-.title { margin: var(--space-4) 0 var(--space-2); max-width: 15ch; font: 600 34px/38px var(--font-sans); letter-spacing: -0.04em; text-wrap: balance; }
+.title { margin: var(--space-4) 0 var(--space-2); max-width: 15ch; font: 300 34px/38px var(--font-sans); letter-spacing: -0.03em; text-wrap: balance; }
 .pills { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-2); }
 .pill { display: inline-flex; align-items: center; height: 28px; padding: 0 12px; border: 1px solid var(--line); border-radius: 14px; font: 500 11px/16px var(--font-mono); color: var(--text-muted); }
 
@@ -61,7 +61,7 @@
 .frente:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 .frenteTop { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-2); }
 .index { font: 400 13px/20px var(--font-mono); letter-spacing: .04em; color: var(--gold); }
-.frenteTitle { font: 600 16px/22px var(--font-sans); letter-spacing: -0.01em; }
+.frenteTitle { font: 400 16px/22px var(--font-sans); letter-spacing: -0.01em; }
 .frenteBody { font-size: 13px; line-height: 20px; color: var(--text-muted); }
 
 /* Projetos: carrossel com encaixe, sangrando até a borda da tela. */
@@ -90,7 +90,7 @@
 .phone img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 9px; }
 .projetoMeta { display: flex; flex-direction: column; gap: 2px; }
 .projetoFrente { font: 500 11px/16px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--text-subtle); }
-.projetoNome { font: 600 17px/24px var(--font-sans); }
+.projetoNome { font: 400 17px/24px var(--font-sans); }
 .projetoLocal { font: 400 12px/16px var(--font-mono); color: var(--text-subtle); }
 .projeto:hover :global(.arrow) { transform: translateX(4px); color: var(--gold); }
 
@@ -99,7 +99,7 @@
 .tickerTrack { display: flex; width: max-content; animation: tickerMove 40s linear infinite; }
 .tickerGroup { display: flex; flex: none; }
 .tickerItem { display: inline-flex; align-items: center; font: 500 12px/20px var(--font-mono); color: var(--text-muted); white-space: nowrap; }
-.sep { color: var(--gold); margin-inline: var(--space-4); font-size: 9px; }
+.sep { width: 5px; height: 5px; border-radius: 9px; background: var(--gold); margin-inline: var(--space-4); flex: none; }
 @keyframes tickerMove { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .tickerTrack { animation: none; } }
 

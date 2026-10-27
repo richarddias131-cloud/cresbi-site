@@ -10,7 +10,7 @@ export function WhyCresbi() {
       <div className="container">
         <div className="section-head">
           <Reveal>
-            <span className="cr-overline">{"// 05 diferenciais"}</span>
+            <span className="cr-overline">05 · Diferenciais</span>
           </Reveal>
           <SplitText
             id="diferenciais-title"

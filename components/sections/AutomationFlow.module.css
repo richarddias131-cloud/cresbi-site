@@ -21,7 +21,7 @@
 }
 .node :global(.icon) { grid-row: span 2; }
 .lit { border-color: var(--gold); }
-.system { font: 500 11px/16px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); }
+.system { font: 400 12px/16px var(--font-sans); color: var(--text-subtle); }
 .event { font: 400 13px/20px var(--font-mono); color: var(--text); overflow-wrap: anywhere; }
 
 .edge { position: relative; align-self: center; width: 1px; height: 40px; background: var(--line-strong); }
