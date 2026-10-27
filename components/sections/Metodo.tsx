@@ -20,7 +20,7 @@ export function Metodo() {
         <ol className={styles.steps}>
           {processo.map((s, i) => (
             <Reveal as="li" key={s.title} delay={0.06 * i} className={styles.step}>
-              <span className={`serif ${styles.num}`}>{String(i + 1).padStart(2, "0")}</span>
+              <span className={`headline ${styles.num}`}>{String(i + 1).padStart(2, "0")}</span>
               <h3 className={styles.title}>{s.title}</h3>
               <p className={styles.body}>{s.body}</p>
             </Reveal>

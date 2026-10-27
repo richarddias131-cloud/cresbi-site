@@ -119,11 +119,10 @@ conteúdo aparece já no estado final, com fades de até 200ms.
 
 ### Visual
 
-Cores e Geist do design system, com títulos em **Instrument Serif**
-(`@fontsource/instrument-serif`, copiada para `public/fonts/` pelo
-`scripts/sync-tokens.mjs`). O acabamento fica em `app/styles/atende.css`
-(sem fonte de código, linhas finas no lugar de cards) e `app/styles/premium.css`
-(serifa, botões em cápsula, mais espaço entre seções).
+Cores e Geist do design system (títulos em Geist 600 com espaçamento negativo).
+O acabamento fica em `app/styles/atende.css` (sem fonte de código, linhas finas no
+lugar de cards) e `app/styles/premium.css` (títulos, botões em cápsula, mais espaço
+entre seções).
 
 ### Abertura
 

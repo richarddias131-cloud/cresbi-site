@@ -1,17 +1,13 @@
 /*
- * Acabamento premium: títulos em Instrument Serif, muito espaço em branco,
- * dourado raro e movimento discreto. Carregado depois de atende.css.
+ * Acabamento premium: títulos em Geist 600 (a fonte original da marca), muito
+ * espaço em branco, dourado raro e movimento discreto. Carregado depois de atende.css.
  */
 
-:root {
-  --font-serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+/* Títulos de seção e do topo em Geist 600 com espaçamento negativo (estilos display do design system). */
+.display-xl, .display-l, .heading-1, .headline {
+  font-family: var(--font-sans); font-weight: 600; letter-spacing: -0.035em;
 }
-
-/* Títulos de seção e do topo em serifa, peso único (400), sem espaçamento negativo forte. */
-.display-xl, .display-l, .heading-1, .serif {
-  font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.01em;
-}
-.display-xl em, .display-l em, .serif em { font-style: italic; color: var(--gold); font-weight: 400; }
+.display-xl em, .display-l em, .headline em { font-style: normal; color: var(--gold); }
 
 /* Seções mais espaçadas. */
 .section { padding-block: var(--space-24); }

@@ -24,7 +24,7 @@ export function Frentes() {
             <Reveal as="li" key={f.id} delay={0.06 * i}>
               <article id={`frente-${f.id}`} className={styles.row} aria-labelledby={`frente-${f.id}-title`}>
                 <span className={styles.index}>{f.index}</span>
-                <h3 id={`frente-${f.id}-title`} className={`serif ${styles.title}`}>
+                <h3 id={`frente-${f.id}-title`} className={`headline ${styles.title}`}>
                   {f.title}
                 </h3>
                 <p className={styles.body}>{f.body}</p>

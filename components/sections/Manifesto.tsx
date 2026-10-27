@@ -14,7 +14,7 @@ export function Manifesto() {
         </Reveal>
         <div className={styles.body}>
           <Reveal>
-            <p className={`serif ${styles.statement}`}>
+            <p className={`headline ${styles.statement}`}>
               Cada empresa tem um jeito próprio de trabalhar. Nosso trabalho é transformar esse jeito em tecnologia,
               sem pacote pronto e com a mesma equipe <em>do começo ao fim</em>.
             </p>

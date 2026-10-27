@@ -4,7 +4,7 @@ import { Reveal } from "../motion/Reveal";
 import { SplitText } from "../motion/SplitText";
 import styles from "./Hero.module.css";
 
-/** Abertura da página: título grande em serifa, uma frase de apoio e um único convite. */
+/** Abertura da página: título grande, uma frase de apoio e um único convite. */
 export function Hero() {
   return (
     <section id="topo" className={styles.hero} aria-labelledby="hero-title">

@@ -61,7 +61,7 @@ export default function Links() {
           </Reveal>
           <SplitText
             as="h1"
-            className={`serif ${styles.title}`}
+            className={`headline ${styles.title}`}
             text="Tecnologia sob medida para empresas que querem crescer."
             highlight="crescer"
             delay={0.25}
@@ -88,7 +88,7 @@ export default function Links() {
                 <a className={styles.row} href={`./#frente-${f.id}`}>
                   <span className={styles.index}>{f.index}</span>
                   <span className={styles.rowText}>
-                    <span className={`serif ${styles.rowTitle}`}>{f.title}</span>
+                    <span className={`headline ${styles.rowTitle}`}>{f.title}</span>
                     <span className={styles.rowBody}>{f.resumo}</span>
                   </span>
                   <span className={`arrow ${styles.arrow}`} aria-hidden="true">
@@ -121,7 +121,7 @@ export default function Links() {
                       </span>
                     </span>
                     <span className={styles.projetoMeta}>
-                      <span className={`serif ${styles.projetoNome}`}>{p.cliente}</span>
+                      <span className={`headline ${styles.projetoNome}`}>{p.cliente}</span>
                       <span className={styles.projetoLocal}>
                         {p.frente.replace(/^\d+ /, "")}
                         {p.local ? ` · ${p.local}` : ""}

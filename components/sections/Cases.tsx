@@ -44,7 +44,7 @@ export function Cases() {
                     {p.frente.replace(/^\d+ /, "")}
                     {p.local ? ` · ${p.local}` : ""}
                   </span>
-                  <h3 className={`serif ${styles.name}`}>
+                  <h3 className={`headline ${styles.name}`}>
                     {p.cliente} <span className="arrow" aria-hidden="true">→</span>
                   </h3>
                   <p className={styles.result}>{p.resultado}</p>

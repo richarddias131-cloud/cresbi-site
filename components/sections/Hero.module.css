@@ -3,8 +3,8 @@
 @media (min-width: 1024px) { .hero { padding-bottom: var(--space-24); } }
 .inner { display: flex; flex-direction: column; gap: var(--space-8); }
 
-/* Título grande, em serifa, ocupando a largura do conteúdo. */
-.title { font-size: clamp(48px, 9vw, 128px); line-height: 0.98; letter-spacing: -0.02em; max-width: 12ch; text-wrap: balance; }
+/* Título grande ocupando a largura do conteúdo. */
+.title { font-size: clamp(44px, 7.4vw, 104px); line-height: 1; letter-spacing: -0.045em; max-width: 13ch; text-wrap: balance; }
 
 .foot { display: grid; gap: var(--space-8); padding-top: var(--space-8); border-top: 1px solid var(--line); }
 @media (min-width: 1024px) { .foot { grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: var(--space-16); } }
