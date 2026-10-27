@@ -19,9 +19,9 @@ export function Faq() {
       <div className={`container ${styles.layout}`}>
         <div className="section-head">
           <Reveal>
-            <span className="cr-overline">07 · Perguntas frequentes</span>
+            <span className="cr-overline">Perguntas frequentes</span>
           </Reveal>
-          <SplitText id="faq-title" className="display-l title-l" text="Perguntas frequentes." />
+          <SplitText id="faq-title" className="display-l title-l" text="Antes de conversarmos." highlight="conversarmos" />
         </div>
         <Reveal>
           <ul className={styles.list}>

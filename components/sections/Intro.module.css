@@ -8,9 +8,6 @@
   position: fixed; inset: 0; z-index: 100;
   display: flex; align-items: center; justify-content: center; padding: var(--space-4);
   background-color: var(--ground);
-  background-image: linear-gradient(var(--surface) 1px, transparent 1px), linear-gradient(90deg, var(--surface) 1px, transparent 1px);
-  background-size: 40px 40px;
-  border-bottom: 1px solid var(--gold-deep);
   cursor: pointer;
   animation: introOut .7s cubic-bezier(0.76, 0, 0.24, 1) 2.2s forwards;
 }
@@ -39,17 +36,12 @@
 @keyframes bar { from { transform: scaleX(0); } }
 
 /* Frase: revelada palavra por palavra, com máscara de baixo para cima. */
-.phrase { margin: 0; max-width: 18ch; font: 300 clamp(26px, 5vw, 44px)/1.12 var(--font-sans); letter-spacing: -0.03em; text-wrap: balance; color: var(--text); }
+.phrase { margin: 0; max-width: 18ch; font: 400 clamp(32px, 6vw, 64px)/1.05 var(--font-serif); letter-spacing: -0.01em; text-wrap: balance; color: var(--text); }
 .mask { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.12em; margin-bottom: -0.12em; }
 .word { display: inline-block; animation: word .7s cubic-bezier(0.22, 1, 0.36, 1) both; }
-.gold { color: var(--gold); font-weight: 400; }
+.gold { color: var(--gold); font-style: italic; }
 @keyframes word { from { transform: translateY(105%); } }
 
 .code { font: 500 11px/16px var(--font-mono); letter-spacing: .08em; color: var(--text-subtle); animation: fade .4s ease 1.5s both; }
 @keyframes fade { from { opacity: 0; } }
 
-.cross { position: absolute; font: 400 16px/1 var(--font-mono); color: var(--line-strong); }
-.tl { top: var(--space-4); left: var(--space-4); }
-.tr { top: var(--space-4); right: var(--space-4); }
-.bl { bottom: var(--space-4); left: var(--space-4); }
-.br { bottom: var(--space-4); right: var(--space-4); }

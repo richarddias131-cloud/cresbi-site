@@ -39,7 +39,7 @@ export function SplitText({ text, highlight, as = "h2", className, id, delay = 0
     return (
       <Tag id={id} className={className}>
         {words.map((w, i) => {
-          const isGold = highlight !== undefined && w.replace(/[.,;:]/g, "") === highlight;
+          const isGold = highlight !== undefined && w.replace(/[.,;:?!]/g, "") === highlight;
           return (
             <Fragment key={i}>
               <span className={styles.mask}>
@@ -62,7 +62,7 @@ export function SplitText({ text, highlight, as = "h2", className, id, delay = 0
     <Tag id={id} className={className}>
       <motion.span className={styles.line} variants={container} initial="hidden" whileInView="shown" viewport={VIEWPORT}>
         {words.map((w, i) => {
-          const isGold = highlight !== undefined && w.replace(/[.,;:]/g, "") === highlight;
+          const isGold = highlight !== undefined && w.replace(/[.,;:?!]/g, "") === highlight;
           return (
             <Fragment key={i}>
               <span className={styles.mask}>

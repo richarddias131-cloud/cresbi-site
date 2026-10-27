@@ -17,3 +17,10 @@ mkdirSync(join("public", "fonts"), { recursive: true });
 for (const file of readdirSync(join(ds, "fonts"))) {
   if (file.endsWith(".woff2")) copyFileSync(join(ds, "fonts", file), join("public", "fonts", file));
 }
+
+// Instrument Serif (títulos), do pacote @fontsource/instrument-serif.
+const serif = join("node_modules", "@fontsource", "instrument-serif", "files");
+for (const style of ["normal", "italic"]) {
+  const file = `instrument-serif-latin-400-${style}.woff2`;
+  copyFileSync(join(serif, file), join("public", "fonts", file));
+}

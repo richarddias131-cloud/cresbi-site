@@ -1,5 +1,0 @@
-.ticker { overflow: hidden; border-block: 1px solid var(--line); background: var(--ground); padding-block: var(--space-4); }
-.track { display: flex; width: max-content; will-change: transform; }
-.group { display: flex; flex: none; }
-.item { display: inline-flex; align-items: center; font: 400 14px/20px var(--font-sans); color: var(--text-muted); white-space: nowrap; }
-.sep { width: 5px; height: 5px; border-radius: 9px; background: var(--gold); margin-inline: var(--space-6); flex: none; }

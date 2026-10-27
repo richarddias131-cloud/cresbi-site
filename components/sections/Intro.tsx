@@ -57,10 +57,6 @@ export function Intro() {
           </p>
           <span className={styles.code}>cresbi.com.br</span>
         </div>
-        <span className={`${styles.cross} ${styles.tl}`}>+</span>
-        <span className={`${styles.cross} ${styles.tr}`}>+</span>
-        <span className={`${styles.cross} ${styles.bl}`}>+</span>
-        <span className={`${styles.cross} ${styles.br}`}>+</span>
       </div>
     </>
   );

@@ -1,0 +1,32 @@
+/*
+ * Acabamento premium: títulos em Instrument Serif, muito espaço em branco,
+ * dourado raro e movimento discreto. Carregado depois de atende.css.
+ */
+
+:root {
+  --font-serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+}
+
+/* Títulos de seção e do topo em serifa, peso único (400), sem espaçamento negativo forte. */
+.display-xl, .display-l, .heading-1, .serif {
+  font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.01em;
+}
+.display-xl em, .display-l em, .serif em { font-style: italic; color: var(--gold); font-weight: 400; }
+
+/* Seções mais espaçadas. */
+.section { padding-block: var(--space-24); }
+@media (min-width: 1024px) { .section { padding-block: 160px; } }
+
+/* Rótulo acima do título: pequeno, discreto. */
+.cr-overline { font: 400 13px/18px var(--font-sans); letter-spacing: 0.02em; color: var(--text-subtle); }
+
+/* Botões: cápsula, mais altos e com mais respiro. */
+.cr-btn { height: 52px; padding: 0 28px; border-radius: 999px; font-weight: 500; font-size: 15px; }
+.cr-btn--sm { height: 40px; padding: 0 20px; font-size: 14px; }
+.cr-btn--secondary { border-color: var(--line2); }
+@media (pointer: coarse), (max-width: 767px) { .cr-btn--sm { height: 44px; } }
+
+/* Link de texto com seta. */
+.text-link { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px; color: var(--text); text-decoration: none; font-size: 15px; border-bottom: 1px solid transparent; }
+.text-link:hover { color: var(--gold-strong); }
+.text-link:hover .arrow { transform: translateX(4px); }

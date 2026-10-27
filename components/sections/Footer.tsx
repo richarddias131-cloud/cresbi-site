@@ -54,9 +54,6 @@ export function Footer() {
       <div className="container">
         <div className={styles.bottom}>
           <span>© 2026 CRESBI · cresbi.com.br</span>
-          <span>
-            status: operacional <span className={styles.dot} aria-hidden="true">●</span>
-          </span>
         </div>
       </div>
     </footer>

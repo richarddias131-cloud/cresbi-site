@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { frentes } from "@/content/site";
 import { INSTAGRAM_URL, SITE_URL, WHATSAPP_NUMBER } from "@/lib/whatsapp";
@@ -37,7 +36,8 @@ export const viewport: Viewport = {
 
 const fontFaces = `
 @font-face { font-family: "Geist"; src: url("fonts/Geist-Variable.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
-@font-face { font-family: "Geist Mono"; src: url("fonts/GeistMono-Variable.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Instrument Serif"; src: url("fonts/instrument-serif-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Instrument Serif"; src: url("fonts/instrument-serif-latin-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
 `;
 
 const jsonLd = {
@@ -68,8 +68,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR" data-theme="dark">
       <head>
         <link rel="preload" href="fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="fonts/GeistMono-Variable.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        {/* @font-face de cresbi-design-system/tokens.css, com caminho relativo à página. */}
+        <link rel="preload" href="fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        {/* @font-face (Geist do design system + Instrument Serif dos títulos), com caminho relativo à página. */}
         <style>{fontFaces}</style>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
@@ -77,7 +77,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a className="skip-link" href="#conteudo">
           Pular para o conteúdo
         </a>
-        <ScrollProgress />
         <SmoothScroll />
         {children}
       </body>

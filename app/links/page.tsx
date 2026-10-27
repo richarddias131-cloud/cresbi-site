@@ -1,14 +1,10 @@
 /* eslint-disable @next/next/no-img-element -- export estático; prints servidos de public/projetos */
 import type { Metadata } from "next";
-import { Bot, Cpu, Globe, MessageCircle, Workflow } from "lucide-react";
-import { frentes, projetos, ticker } from "@/content/site";
-import { whatsappLink } from "@/lib/whatsapp";
+import { frentes, projetos } from "@/content/site";
+import { INSTAGRAM_URL, whatsappLink } from "@/lib/whatsapp";
 import { external } from "@/components/ds/Button";
-import { Magnetic } from "@/components/motion/Magnetic";
 import { Reveal } from "@/components/motion/Reveal";
 import { SplitText } from "@/components/motion/SplitText";
-import { HeroConsole } from "@/components/sections/HeroConsole";
-import { LinksGrid } from "./LinksGrid";
 import styles from "./links.module.css";
 
 // Página de links da bio do Instagram (@cresbi.oficial). Endereço: /links
@@ -16,20 +12,11 @@ import styles from "./links.module.css";
 export const metadata: Metadata = {
   title: "CRESBI · Links",
   description:
-    "Fale com a CRESBI no WhatsApp e conheça as frentes e os projetos: sistemas, presença digital, automações e IA.",
+    "Agende uma conversa com a CRESBI e conheça as frentes e os projetos: sistemas, presença digital, automações e IA.",
   alternates: { canonical: "/links" },
 };
 
-const mensagemInstagram = "Olá, CRESBI. Vim pelo Instagram e quero conversar sobre um projeto.";
-
-const ICONES = [Cpu, Globe, Workflow, Bot];
-
-const consoleBio = [
-  { name: "Instagram", status: "conectado" },
-  { name: "WhatsApp", status: "online" },
-  { name: "Agenda", status: "aberta" },
-  { name: "Seu projeto", status: "aguardando", wait: true },
-];
+const mensagemInstagram = "Olá, CRESBI. Vim pelo Instagram e gostaria de agendar uma conversa sobre o meu negócio.";
 
 /** Símbolo do perfil do Instagram: três barras, a do meio em ouro e mais curta. */
 function Barras({ className, stretch }: { className?: string; stretch?: boolean }) {
@@ -62,11 +49,9 @@ function Wordmark({ className }: { className?: string }) {
 export default function Links() {
   return (
     <main id="conteudo" tabIndex={-1} className={styles.page} data-page="links">
-      {/* Topo: grade técnica com holofote, marcas de precisão e o perfil. */}
-      <header className={styles.top}>
-        <LinksGrid />
-        <div className={styles.topInner}>
-          <Reveal onMount delay={0.05} className={styles.avatarWrap}>
+      <div className={styles.column}>
+        <header className={styles.profile}>
+          <Reveal onMount delay={0.05}>
             <div className={styles.avatar}>
               <Barras className={styles.avatarMark} />
             </div>
@@ -74,63 +59,44 @@ export default function Links() {
           <Reveal onMount delay={0.15}>
             <Wordmark />
           </Reveal>
-          <Reveal onMount delay={0.2}>
-            <span className={styles.handle}>@cresbi.oficial</span>
-          </Reveal>
           <SplitText
             as="h1"
-            className={styles.title}
+            className={`serif ${styles.title}`}
             text="Tecnologia sob medida para empresas que querem crescer."
             highlight="crescer"
-            delay={0.3}
+            delay={0.25}
             onMount
           />
-          <Reveal onMount delay={0.7} className={styles.pills}>
-            <span className="cr-header__status">agenda aberta</span>
-            <span className={styles.pill}>sistemas · presença · automações · ia</span>
-          </Reveal>
-        </div>
-      </header>
+        </header>
 
-      <div className={styles.column}>
-        {/* Console: a assinatura da marca, digitado na entrada. */}
-        <Reveal onMount delay={0.8}>
-          <HeroConsole startAt={1.1} lines={consoleBio} title="Status" />
-        </Reveal>
-
-        <Reveal onMount delay={0.9} className={styles.ctaWrap}>
-          <Magnetic>
-            <a className={`cr-btn cr-btn--primary ${styles.cta}`} href={whatsappLink(mensagemInstagram)} {...external}>
-              <MessageCircle className={`icon ${styles.ctaIcon}`} aria-hidden="true" />
-              Falar no WhatsApp
-              <span aria-hidden="true">→</span>
-            </a>
-          </Magnetic>
-          <span className={styles.note}>A conversa abre com a mensagem pronta.</span>
+        <Reveal onMount delay={0.6} className={styles.ctaWrap}>
+          <a className={`cr-btn cr-btn--primary ${styles.cta}`} href={whatsappLink(mensagemInstagram)} {...external}>
+            Agendar uma conversa
+          </a>
+          <span className={styles.note}>Pelo WhatsApp, com a mensagem pronta.</span>
         </Reveal>
 
         <section aria-labelledby="links-frentes" className={styles.group}>
-          <Reveal className={styles.groupHead}>
+          <Reveal>
             <h2 id="links-frentes" className="cr-overline">
               Frentes
             </h2>
           </Reveal>
-          <ul className={styles.frentes}>
-            {frentes.map((f, i) => {
-              const Icon = ICONES[i];
-              return (
-                <Reveal as="li" key={f.id} delay={i * 0.07}>
-                  <a className={styles.frente} href={`./#frente-${f.id}`}>
-                    <span className={styles.frenteTop}>
-                      <span className={styles.index}>{f.index}</span>
-                      <Icon className="icon" aria-hidden="true" />
-                    </span>
-                    <span className={styles.frenteTitle}>{f.title}</span>
-                    <span className={styles.frenteBody}>{f.resumo}</span>
-                  </a>
-                </Reveal>
-              );
-            })}
+          <ul className={styles.list}>
+            {frentes.map((f, i) => (
+              <Reveal as="li" key={f.id} delay={i * 0.06}>
+                <a className={styles.row} href={`./#frente-${f.id}`}>
+                  <span className={styles.index}>{f.index}</span>
+                  <span className={styles.rowText}>
+                    <span className={`serif ${styles.rowTitle}`}>{f.title}</span>
+                    <span className={styles.rowBody}>{f.resumo}</span>
+                  </span>
+                  <span className={`arrow ${styles.arrow}`} aria-hidden="true">
+                    →
+                  </span>
+                </a>
+              </Reveal>
+            ))}
           </ul>
         </section>
 
@@ -144,65 +110,41 @@ export default function Links() {
             </span>
           </Reveal>
           <Reveal>
-          <ul className={styles.carousel}>
-            {projetos.map((p) => (
-              <li key={p.cliente} className={styles.slide}>
-                <a className={styles.projeto} href={p.link} {...(p.link.startsWith("http") ? external : {})}>
-                  <span className={styles.shot}>
-                    <span className={styles.shotBar} aria-hidden="true">
-                      <span className={styles.dots}>● ● ●</span>
-                      <span className={styles.url}>{p.url}</span>
+            <ul className={styles.carousel}>
+              {projetos.map((p) => (
+                <li key={p.cliente} className={styles.slide}>
+                  <a className={styles.projeto} href={p.link} {...(p.link.startsWith("http") ? external : {})}>
+                    <span className={styles.shot}>
+                      <img src={p.imagem} alt={`Página inicial de ${p.cliente}`} loading="lazy" decoding="async" />
+                      <span className={styles.phone}>
+                        <img src={p.imagemMobile} alt="" loading="lazy" decoding="async" />
+                      </span>
                     </span>
-                    <img src={p.imagem} alt={`Página inicial de ${p.cliente}`} loading="lazy" decoding="async" />
-                    <span className={styles.phone}>
-                      <img src={p.imagemMobile} alt="" loading="lazy" decoding="async" />
+                    <span className={styles.projetoMeta}>
+                      <span className={`serif ${styles.projetoNome}`}>{p.cliente}</span>
+                      <span className={styles.projetoLocal}>
+                        {p.frente.replace(/^\d+ /, "")}
+                        {p.local ? ` · ${p.local}` : ""}
+                      </span>
                     </span>
-                  </span>
-                  <span className={styles.projetoMeta}>
-                    <span className={styles.projetoFrente}>{p.frente}</span>
-                    <span className={styles.projetoNome}>
-                      {p.cliente} <span className="arrow">→</span>
-                    </span>
-                    {p.local ? <span className={styles.projetoLocal}>{p.local}</span> : null}
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </Reveal>
         </section>
-      </div>
 
-      <div className={styles.ticker} aria-hidden="true">
-        <div className={styles.tickerTrack}>
-          {[0, 1].map((copy) => (
-            <span key={copy} className={styles.tickerGroup}>
-              {ticker.map((t) => (
-                <span key={`${copy}-${t}`} className={styles.tickerItem}>
-                  {t}
-                  <span className={styles.sep} />
-                </span>
-              ))}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      <div className={styles.column}>
         <Reveal className={styles.siteWrap}>
           <a className={`cr-btn cr-btn--secondary ${styles.site}`} href="./">
             Ver o site completo
           </a>
+          <a className={styles.instagram} href={INSTAGRAM_URL} {...external}>
+            @cresbi.oficial
+          </a>
         </Reveal>
 
         <footer className={styles.footer}>
-          <Wordmark className={styles.footerMark} />
-          <div className={styles.footerLine}>
-            <span>© 2026 CRESBI · cresbi.com.br</span>
-            <span>
-              status: operacional <span className={styles.dot}>●</span>
-            </span>
-          </div>
+          <span>© 2026 CRESBI · cresbi.com.br</span>
         </footer>
       </div>
     </main>

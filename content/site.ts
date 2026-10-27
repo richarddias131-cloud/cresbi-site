@@ -19,7 +19,7 @@ export const frentes: Frente[] = [
     nav: "sistemas",
     title: "Sistemas sob medida",
     resumo: "Sistemas internos feitos para o seu processo.",
-    body: "Sistemas internos feitos para o processo de cada empresa, do pedido ao relatório.",
+    body: "Sistemas internos desenhados para o processo da sua empresa, do pedido ao relatório. Inclui o Cresbi Analyzer, nosso analisador de vendas.",
     items: ["Gestão de pedidos e estoque", "Portal do cliente e painel administrativo", "Cresbi Analyzer, analisador de vendas"],
   },
   {
@@ -28,7 +28,7 @@ export const frentes: Frente[] = [
     nav: "presença",
     title: "Presença digital",
     resumo: "Site, Google e Instagram trabalhando juntos.",
-    body: "Site, Google e Instagram trabalhando juntos para a sua empresa ser encontrada e bem apresentada.",
+    body: "Site, Google Meu Negócio e Instagram trabalhando juntos, para a sua empresa ser encontrada e lembrada.",
     items: ["Sites e landing pages", "Perfil no Google Meu Negócio", "Instagram e identidade visual"],
   },
   {
@@ -46,61 +46,8 @@ export const frentes: Frente[] = [
     nav: "ia",
     title: "Implementação de IA",
     resumo: "IA nos processos, com a equipe treinada.",
-    body: "IA aplicada a processos reais do negócio, com a equipe treinada para usar no dia a dia.",
+    body: "Inteligência artificial aplicada a processos reais do negócio, com a equipe treinada para usar no dia a dia.",
     items: ["Mapeamento de onde a IA ajuda", "Assistentes para atendimento e rotinas", "Treinamento da equipe"],
-  },
-];
-
-export const heroConsole = [
-  { name: "Sistema de pedidos", status: "no ar" },
-  { name: "Site institucional", status: "publicado" },
-  { name: "Perfil no Google", status: "otimizado" },
-  { name: "Rotina de relatórios", status: "automatizada" },
-  { name: "Assistente de IA", status: "em treinamento", wait: true },
-];
-
-export const heroStack = ["Python", "SQL", "Supabase", "WhatsApp", "Google", "IA"];
-
-export const ticker = [
-  "Sistemas sob medida",
-  "Presença digital",
-  "Sites",
-  "Google Meu Negócio",
-  "Instagram",
-  "Automações",
-  "Integrações",
-  "Implementação de IA",
-  "Treinamento de equipe",
-];
-
-export const fluxo = [
-  { system: "WhatsApp", event: "Pedido recebido", log: "Pedido recebido" },
-  { system: "Sistema", event: "Baixa no estoque", log: "Estoque atualizado" },
-  { system: "Planilha", event: "Venda registrada", log: "Venda registrada" },
-  { system: "Relatório", event: "Enviado às 8h", log: "Relatório enviado" },
-];
-
-// Frente 04: exemplos de uso de IA em processos do dia a dia.
-export const usosIa = [
-  {
-    label: "Atendimento",
-    title: "Atendimento no WhatsApp",
-    body: "Respostas a perguntas frequentes dos clientes, com a equipe assumindo a conversa quando for preciso.",
-  },
-  {
-    label: "Documentos",
-    title: "Pedidos, notas e e-mails",
-    body: "Leitura de documentos que chegam todo dia para preencher planilhas e sistemas sem digitação manual.",
-  },
-  {
-    label: "Conteúdo",
-    title: "Textos para revisar",
-    body: "Rascunhos de posts, descrições de produtos e respostas a avaliações, sempre revisados pela equipe.",
-  },
-  {
-    label: "Rotinas internas",
-    title: "Consultas e resumos",
-    body: "Resumos de reuniões e relatórios, e respostas a partir das informações da própria empresa.",
   },
 ];
 

@@ -12,6 +12,7 @@ export function whatsappLink(message?: string): string {
 
 export const messages = {
   geral: "Olá, CRESBI. Quero conversar sobre um projeto para a minha empresa.",
+  conversa: "Olá, CRESBI. Gostaria de agendar uma conversa sobre o meu negócio.",
   iniciar: "Olá, CRESBI. Quero iniciar um projeto.",
   raioX: "Olá, CRESBI. Quero o Raio-X dos dados da minha empresa.",
   frente: (frente: string) => `Olá, CRESBI. Quero saber mais sobre ${frente}.`,
