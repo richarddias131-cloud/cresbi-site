@@ -64,9 +64,9 @@ Sem essa troca, o Pages passa a mostrar este README em vez do site.
 
 ## Onde trocar textos
 
-- `content/site.ts`: as quatro frentes (cards de serviço, menu, rodapé, atalhos
-  do WhatsApp e JSON-LD), linhas do Console do hero, faixa, fluxo de automação,
-  exemplos de IA, etapas do método, diferenciais, projetos e FAQ.
+- `content/site.ts`: as quatro frentes (lista de frentes, rodapé, atalhos do
+  WhatsApp, página de links e JSON-LD), etapas do método, diferenciais (usados no
+  manifesto), projetos e FAQ.
 - `lib/whatsapp.ts`: número do WhatsApp, Instagram e as mensagens prontas de
   cada botão do WhatsApp (incluindo os atalhos por frente da seção de contato).
   O e-mail foi tirado do site até a caixa contato@cresbi.com.br estar configurada.
@@ -88,7 +88,7 @@ celular fica sobreposto no canto. Use JPG ou WebP com até ~250 KB.
 
 | Onde | Placeholder |
 | --- | --- |
-| Seção "Por que a CRESBI" (opcional) | linha de métricas `[X] projetos entregues · [Y] empresas atendidas`: não foi publicada para não mostrar colchetes no ar. Se houver números reais, inclua em `components/sections/WhyCresbi.tsx` |
+| Manifesto (opcional) | linha de métricas `[X] projetos entregues · [Y] empresas atendidas`: não foi publicada para não mostrar colchetes no ar. Se houver números reais, inclua em `components/sections/Manifesto.tsx` |
 
 ## Estrutura
 
@@ -98,12 +98,11 @@ app/
   page.tsx            monta as seções
   globals.css         importa tokens (gerado) + bundle.css do design system
 components/
-  ds/                 wrappers React dos componentes cr-* (Button, Tag, Console,
-                      ServiceCard, Logo)
-  sections/           Header, Hero, Ticker, Services, AutomationFlow, AiSection,
-                      Process, WhyCresbi, Cases, Faq, FinalCta, Footer
-  motion/             constantes de movimento, Reveal, SplitText, Typewriter,
-                      Magnetic, GridCanvas, ScrollProgress, SmoothScroll
+  ds/                 Button e Logo (três barras + CRESBI)
+  sections/           Intro, Header, Hero, Manifesto, Frentes, Metodo, Cases,
+                      Faq, FinalCta, Footer
+  motion/             constantes de movimento, Reveal, SplitText, Magnetic,
+                      SmoothScroll
 content/site.ts       textos
 lib/whatsapp.ts       links wa.me e mensagens
 public/               fontes, logos, favicon, OG, robots, sitemap, prints e as páginas do Cresbi Analyzer
@@ -113,12 +112,17 @@ cresbi-design-system/ referência da marca (cores, fontes e componentes; não ed
 
 ### Movimento
 
-Tudo sai de `components/motion/constants.ts`: easing `cubic-bezier(0.22, 1, 0.36, 1)`,
-durações de 200/500/800ms e stagger de 50–80ms. Com
-`prefers-reduced-motion: reduce`, o Lenis, o holofote, a faixa, os pacotes do
-fluxo, o pulso do símbolo e o cursor piscando ficam desligados, e o conteúdo
-aparece já no estado final, com fades de até 200ms. Loops (faixa, fluxo,
-canvas, pulso) pausam fora da tela e com a aba oculta.
+Movimento discreto: títulos revelados palavra por palavra no topo e fades ao
+rolar, tudo a partir de `components/motion/constants.ts`. Com
+`prefers-reduced-motion: reduce`, o Lenis e a abertura ficam desligados e o
+conteúdo aparece já no estado final, com fades de até 200ms.
+
+### Visual
+
+Cores e Geist do design system (títulos em Geist 600 com espaçamento negativo).
+O acabamento fica em `app/styles/atende.css` (sem fonte de código, linhas finas no
+lugar de cards) e `app/styles/premium.css` (títulos, botões em cápsula, mais espaço
+entre seções).
 
 ### Abertura
 
@@ -130,8 +134,7 @@ negócio." entra palavra por palavra e a tela sobe como uma cortina (cerca de 2,
   `prefers-reduced-motion` e pode ser pulada com clique, toque ou tecla.
 - É toda em CSS; o script inline só decide se toca. Enquanto ela toca,
   `<html data-intro="play">` define `--intro-delay` (2,2 s), que atrasa a entrada
-  do hero para depois da cortina (`components/motion/intro.ts` faz o mesmo para o
-  console, que é animado em JS).
+  do topo para depois da cortina.
 - Para trocar a frase, edite `FRASE` e `DESTAQUE` no início do arquivo.
 - Não entra na página `/links`.
 
@@ -167,6 +170,6 @@ Páginas antigas que viraram redirecionamento (HTML com `meta refresh`,
 
 | Endereço antigo | Vai para |
 | --- | --- |
-| `/sobre/` | `/#diferenciais` |
+| `/sobre/` | `/#sobre` |
 | `/contato/` | `/#contato` |
 | `/exemplo-analise-demonstrativa.html` | `/analyzer/exemplo-analise-demonstrativa.html` |

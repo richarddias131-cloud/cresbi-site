@@ -1,5 +1,7 @@
 @import "./styles/tokens.generated.css";
 @import "../cresbi-design-system/components/bundle.css";
+@import "./styles/atende.css";
+@import "./styles/premium.css";
 
 /* Base ------------------------------------------------------------------ */
 *, *::before, *::after { box-sizing: border-box; }

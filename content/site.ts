@@ -19,7 +19,7 @@ export const frentes: Frente[] = [
     nav: "sistemas",
     title: "Sistemas sob medida",
     resumo: "Sistemas internos feitos para o seu processo.",
-    body: "Sistemas internos feitos para o processo de cada empresa, do pedido ao relatório.",
+    body: "Sistemas internos desenhados para o processo da sua empresa, do pedido ao relatório. Inclui o Cresbi Analyzer, nosso analisador de vendas.",
     items: ["Gestão de pedidos e estoque", "Portal do cliente e painel administrativo", "Cresbi Analyzer, analisador de vendas"],
   },
   {
@@ -28,7 +28,7 @@ export const frentes: Frente[] = [
     nav: "presença",
     title: "Presença digital",
     resumo: "Site, Google e Instagram trabalhando juntos.",
-    body: "Site, Google e Instagram trabalhando juntos para a sua empresa ser encontrada e bem apresentada.",
+    body: "Site, Google Meu Negócio e Instagram trabalhando juntos, para a sua empresa ser encontrada e lembrada.",
     items: ["Sites e landing pages", "Perfil no Google Meu Negócio", "Instagram e identidade visual"],
   },
   {
@@ -46,87 +46,34 @@ export const frentes: Frente[] = [
     nav: "ia",
     title: "Implementação de IA",
     resumo: "IA nos processos, com a equipe treinada.",
-    body: "IA aplicada a processos reais do negócio, com a equipe treinada para usar no dia a dia.",
+    body: "Inteligência artificial aplicada a processos reais do negócio, com a equipe treinada para usar no dia a dia.",
     items: ["Mapeamento de onde a IA ajuda", "Assistentes para atendimento e rotinas", "Treinamento da equipe"],
-  },
-];
-
-export const heroConsole = [
-  { name: "sistema_pedidos", status: "online" },
-  { name: "site_institucional", status: "publicado" },
-  { name: "perfil_google", status: "otimizado" },
-  { name: "rotina_relatorios", status: "automatizada" },
-  { name: "assistente_ia", status: "em_treinamento", wait: true },
-];
-
-export const heroStack = ["python", "sql", "supabase", "whatsapp", "google", "ia"];
-
-export const ticker = [
-  "sistemas_sob_medida",
-  "presença_digital",
-  "sites",
-  "google_meu_negócio",
-  "instagram",
-  "automações",
-  "integrações",
-  "implementação_de_ia",
-  "treinamento_de_equipe",
-];
-
-export const fluxo = [
-  { system: "whatsapp", event: "pedido_recebido", log: "pedido recebido" },
-  { system: "sistema", event: "baixa_no_estoque", log: "estoque atualizado" },
-  { system: "planilha", event: "venda_registrada", log: "venda registrada" },
-  { system: "relatório", event: "enviado_às_08h", log: "relatório enviado" },
-];
-
-// Frente 04: exemplos de uso de IA em processos do dia a dia.
-export const usosIa = [
-  {
-    label: "atendimento",
-    title: "Atendimento no WhatsApp",
-    body: "Respostas a perguntas frequentes dos clientes, com a equipe assumindo a conversa quando for preciso.",
-  },
-  {
-    label: "documentos",
-    title: "Pedidos, notas e e-mails",
-    body: "Leitura de documentos que chegam todo dia para preencher planilhas e sistemas sem digitação manual.",
-  },
-  {
-    label: "conteúdo",
-    title: "Textos para revisar",
-    body: "Rascunhos de posts, descrições de produtos e respostas a avaliações, sempre revisados pela equipe.",
-  },
-  {
-    label: "rotinas_internas",
-    title: "Consultas e resumos",
-    body: "Resumos de reuniões e relatórios, e respostas a partir das informações da própria empresa.",
   },
 ];
 
 export const processo = [
   {
-    step: "step_01",
+    step: "Etapa 01",
     title: "Diagnóstico",
     body: "Entendemos seu processo, seus números e onde a tecnologia gera retorno.",
   },
   {
-    step: "step_02",
+    step: "Etapa 02",
     title: "Desenho",
     body: "Você aprova a solução e o escopo antes de qualquer linha de código.",
   },
   {
-    step: "step_03",
+    step: "Etapa 03",
     title: "Construção por etapas",
     body: "Entregamos em partes, para você acompanhar e validar cada uma.",
   },
   {
-    step: "step_04",
+    step: "Etapa 04",
     title: "Entrega com treinamento",
     body: "A solução vai para o ar documentada, e a equipe aprende a usar.",
   },
   {
-    step: "step_05",
+    step: "Etapa 05",
     title: "Acompanhamento",
     body: "Seguimos junto depois da entrega, ajustando e melhorando com o uso.",
   },

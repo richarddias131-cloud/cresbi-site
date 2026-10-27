@@ -1,5 +1,0 @@
-.grid { display: grid; gap: var(--space-6); }
-.cell { min-width: 0; }
-/* 2 × 2 em telas médias, 4 em linha no desktop */
-@media (min-width: 768px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (min-width: 1280px) { .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }

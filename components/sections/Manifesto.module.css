@@ -1,0 +1,9 @@
+.layout { display: grid; gap: var(--space-8); }
+@media (min-width: 1024px) { .layout { grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--space-16); } }
+.body { display: flex; flex-direction: column; gap: var(--space-16); }
+.statement { font-size: clamp(26px, 3.4vw, 44px); line-height: 1.18; letter-spacing: -0.03em; font-weight: 500; color: var(--text); text-wrap: pretty; }
+.facts { margin: 0; display: grid; gap: var(--space-8); }
+@media (min-width: 768px) { .facts { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.fact { display: flex; flex-direction: column; gap: var(--space-2); padding-top: var(--space-4); border-top: 1px solid var(--line); }
+.fact dt { font-size: 16px; line-height: 24px; color: var(--text); }
+.fact dd { margin: 0; font-size: 15px; line-height: 24px; color: var(--text-muted); }

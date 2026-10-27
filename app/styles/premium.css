@@ -1,0 +1,28 @@
+/*
+ * Acabamento premium: títulos em Geist 600 (a fonte original da marca), muito
+ * espaço em branco, dourado raro e movimento discreto. Carregado depois de atende.css.
+ */
+
+/* Títulos de seção e do topo em Geist 600 com espaçamento negativo (estilos display do design system). */
+.display-xl, .display-l, .heading-1, .headline {
+  font-family: var(--font-sans); font-weight: 600; letter-spacing: -0.035em;
+}
+.display-xl em, .display-l em, .headline em { font-style: normal; color: var(--gold); }
+
+/* Seções mais espaçadas. */
+.section { padding-block: var(--space-24); }
+@media (min-width: 1024px) { .section { padding-block: 160px; } }
+
+/* Rótulo acima do título: pequeno, discreto. */
+.cr-overline { font: 400 13px/18px var(--font-sans); letter-spacing: 0.02em; color: var(--text-subtle); }
+
+/* Botões: cápsula, mais altos e com mais respiro. */
+.cr-btn { height: 52px; padding: 0 28px; border-radius: 999px; font-weight: 500; font-size: 15px; }
+.cr-btn--sm { height: 40px; padding: 0 20px; font-size: 14px; }
+.cr-btn--secondary { border-color: var(--line2); }
+@media (pointer: coarse), (max-width: 767px) { .cr-btn--sm { height: 44px; } }
+
+/* Link de texto com seta. */
+.text-link { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px; color: var(--text); text-decoration: none; font-size: 15px; border-bottom: 1px solid transparent; }
+.text-link:hover { color: var(--gold-strong); }
+.text-link:hover .arrow { transform: translateX(4px); }

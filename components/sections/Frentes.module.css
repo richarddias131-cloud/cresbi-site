@@ -1,0 +1,14 @@
+.head { display: flex; flex-direction: column; gap: var(--space-4); margin-bottom: var(--space-16); }
+.head h2 { max-width: 22ch; }
+
+.list { list-style: none; border-top: 1px solid var(--line); }
+.list > li { border-bottom: 1px solid var(--line); }
+.row { display: grid; gap: var(--space-3); padding-block: var(--space-8); transition: background-color .3s ease; }
+.index { font-size: 13px; line-height: 20px; color: var(--gold); }
+.title { font-size: clamp(28px, 3vw, 40px); line-height: 1.1; }
+.body { color: var(--text-muted); font-size: 16px; line-height: 26px; max-width: 520px; }
+.link { justify-self: start; }
+
+@media (min-width: 1024px) {
+  .row { grid-template-columns: 64px minmax(0, 5fr) minmax(0, 5fr) auto; align-items: baseline; gap: var(--space-8); padding-block: var(--space-12); }
+}

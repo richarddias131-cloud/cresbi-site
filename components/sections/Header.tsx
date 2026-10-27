@@ -3,7 +3,6 @@
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { frentes } from "@/content/site";
 import { messages, whatsappLink } from "@/lib/whatsapp";
 import { Button, external } from "../ds/Button";
 import { Logo } from "../ds/Logo";
@@ -12,13 +11,19 @@ import { scrollToTarget } from "../motion/SmoothScroll";
 import { useReduced } from "../motion/useReduced";
 import styles from "./Header.module.css";
 
+const SECOES = [
+  { id: "frentes", label: "Frentes" },
+  { id: "metodo", label: "Método" },
+  { id: "projetos", label: "Projetos" },
+  { id: "contato", label: "Contato" },
+];
+
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
   const reduced = useReduced();
   const toggleRef = useRef<HTMLButtonElement>(null);
-  const clickedRef = useRef<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -32,27 +37,16 @@ export function Header() {
     const targets = Array.from(document.querySelectorAll<HTMLElement>("[data-nav]"));
     const compute = () => {
       const mid = window.innerHeight / 2;
-      const hits = targets.filter((t) => {
+      const hit = targets.find((t) => {
         const r = t.getBoundingClientRect();
         return r.top <= mid && r.bottom >= mid;
       });
-      // Com os cinco cards na mesma linha (desktop), mantém o último link clicado.
-      const clicked = hits.find((t) => t.dataset.nav === clickedRef.current);
-      setActive((clicked ?? hits[0])?.dataset.nav ?? null);
+      setActive(hit?.dataset.nav ?? null);
     };
-    const onClick = (e: MouseEvent) => {
-      const link = (e.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="#frente-"]');
-      if (link) {
-        clickedRef.current = link.hash.replace("#frente-", "");
-        setActive(clickedRef.current);
-      }
-    };
-    document.addEventListener("click", onClick);
     const io = new IntersectionObserver(compute, { rootMargin: "-50% 0px -50% 0px" });
     targets.forEach((t) => io.observe(t));
     return () => {
       io.disconnect();
-      document.removeEventListener("click", onClick);
     };
   }, []);
 
@@ -87,19 +81,17 @@ export function Header() {
     <header className={`${styles.wrap} ${scrolled ? styles.scrolled : ""}`}>
       <div className={`cr-header ${styles.header}`}>
         <a href="#topo" className={styles.logoLink} aria-label="CRESBI, voltar ao início">
-          <Logo className="cr-header__logo" />
+          <Logo height={19} />
         </a>
-        <nav className={`cr-header__nav ${styles.nav}`} aria-label="Frentes">
-          {frentes.map((f) => (
-            <a key={f.id} href={`#frente-${f.id}`} aria-current={active === f.id ? "true" : undefined}>
-              <span>{f.index}</span>
-              {f.nav}
+        <nav className={`cr-header__nav ${styles.nav}`} aria-label="Seções">
+          {SECOES.map((s) => (
+            <a key={s.id} href={`#${s.id}`} aria-current={active === s.id ? "true" : undefined}>
+              {s.label}
             </a>
           ))}
         </nav>
-        <span className={`cr-header__status ${styles.status}`}>agenda aberta</span>
-        <Button size="sm" href={whatsappLink(messages.geral)} {...external} className={styles.cta}>
-          Falar no WhatsApp
+        <Button size="sm" href={whatsappLink(messages.conversa)} {...external} className={styles.cta}>
+          Agendar conversa
         </Button>
         <button
           ref={toggleRef}
@@ -125,18 +117,17 @@ export function Header() {
             transition={fade}
           >
             <nav aria-label="Menu" className={styles.menuNav}>
-              {frentes.map((f, i) => (
+              {SECOES.map((s, i) => (
                 <motion.a
-                  key={f.id}
-                  href={`#frente-${f.id}`}
-                  onClick={goMobile(`frente-${f.id}`)}
+                  key={s.id}
+                  href={`#${s.id}`}
+                  onClick={goMobile(s.id)}
                   className={styles.menuLink}
                   initial={{ opacity: 0, y: reduced ? 0 : 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={reduced ? fade : { duration: DURATION.enter, ease: EASE, delay: 0.05 + i * 0.06 }}
                 >
-                  <span className={styles.menuIndex}>{f.index}</span>
-                  {f.title}
+                  {s.label}
                 </motion.a>
               ))}
             </nav>
@@ -146,9 +137,8 @@ export function Header() {
               animate={{ opacity: 1 }}
               transition={reduced ? fade : { duration: DURATION.enter, ease: EASE, delay: 0.4 }}
             >
-              <span className="cr-header__status">agenda aberta</span>
-              <Button href={whatsappLink(messages.geral)} {...external} magnetic={false}>
-                Falar no WhatsApp
+              <Button href={whatsappLink(messages.conversa)} {...external}>
+                Agendar uma conversa
               </Button>
             </motion.div>
           </motion.div>

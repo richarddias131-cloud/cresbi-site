@@ -8,7 +8,7 @@ type Common = {
   size?: "md" | "sm";
   className?: string;
   children: ReactNode;
-  /** Primários seguem o cursor por padrão. */
+  /** Faz o botão seguir o cursor (desligado por padrão). */
   magnetic?: boolean;
 };
 
@@ -33,7 +33,8 @@ export function Button(props: AsLink | AsButton) {
       </button>
     );
 
-  return (magnetic ?? variant === "primary") ? <Magnetic>{el}</Magnetic> : el;
+  // No acabamento premium, nenhum botão segue o cursor por padrão.
+  return magnetic ? <Magnetic>{el}</Magnetic> : el;
 }
 
 /** Atributos de link externo (WhatsApp, Instagram). */
